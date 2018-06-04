@@ -1,0 +1,154 @@
+<resources>
+  <string name="app_name">AjDevops</string>
+  <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+  <string name="navigation_drawer_open">Open navigation drawer</string>
+  <string name="navigation_drawer_close">Close navigation drawer</string>
+  <string name="nav_header_title">Android Studio</string>
+  <string name="nav_header_subtitle">android.studio@android.com</string>
+  <string name="nav_header_desc">Navigation header</string>
+  <string name="action_settings">Settings</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="history">Git is, first and foremost, a version control system (VCS)and it is open source.
+    \n \n <font color='#800080'><b>There are two types of (VCS)</b>\n.</font> \n 1. Distributed version control system (DVCS)\n2.Centralised version control systems (CVCS).\n\n There are many version control systems out
+    there, for example, CVS, SVN, Mercurial, Fossil etc. \n Git is an example of Distributed version
+    control System (DVCS), \n which keeps track of each modification done to the code over time, and
+    allows you to backtrack if necessary and undo those changes.\n\n Git will allow you to go back
+    to a previous status on a project or to see its entire evolution since the project created.\n\n
+    <b>Git is also called as source code management (SCM).</b>
+
+    <font fgcolor='#800080'>
+      <b>\n\n With Git, 3 basic issues were solved when working on projects:</b>\n
+    </font>
+    \n\n
+
+    1===>It has made easier to manage large projects.\n
+    2===>It helps you to avoid overwriting the team’s advances and work.\n
+    3===>With git, you just pull the entire code and history to your system. It’s much simpler and much
+    more lightweight.\n
+    4===><b>Files in a repository go through three stages before being under version control with git:\n\n</b>
+
+    <font color='#800080'>
+      <b>Working Directory (Untracked):</b>\n
+    </font>
+    \n All the modifications are done in this stage to the files, but is not part of git’s version
+    control.\n So, to make files part of git version control we use the below command \n<b>#git add
+      or #git add . (dot means everything).\n
+    </b> \n
+    <font color='#800080'>
+      <b>Staging (Staged):</b>\n
+    </font>
+    \n All the files have been added to git’s version control and are
+    tracked by git, but changes have not been committed,\n so to commit changes we use following
+    command \n <b>#git commit -m “commit message”.\n</b> \n
+    <font color='#800080'>
+      <b>Committed:</b>\n
+    </font>
+    \n All the changes has been committed.\n
+    There are many tools available in the market right now like Git to revision control and SCM
+    (source code management) but \n\n
+    <font color='#800080'><b>why Git is the most popular? Well the reasons are:</b>\n\n
+    </font>
+
+    1===>Git tracks state, history and integrates of the source tree.\n
+    2===>Git keeps old versions for you if any developer occurs any mistake in code, \n then you will
+    always have the previous version to fix it.\n
+    3===>Multiple developers can work together, once they write code in their local machine and commit it
+    \n then other developers can pull it easily.\n
+    4===>Large developers community and online websites to upload \n your source codes or get others
+    source codes to make your work easier.\n
+    5===>Lots of software available for both who comfortable with command line and for others GUI
+    tools.\n
+    6===>Easy and clear documentation to get started with.\n
+    7===>Git will not use much bandwidth you don’t have to connect with your server always\n you just
+    need to connect to push code when you complete the code.\n
+    <font color='#800080'>
+      <b>Git uses some repositories management services like</b>
+    </font>
+    \n\n Github, Gitlab, Bitbucket
+  </string>
+
+  //docker details
+  <string name="docker_history">Linux containers are an operating system level virtualization technology for providing multiple isolated Linux environments on a single Linux host. Unlike virtual machines (VMs), containers do not run dedicated guest operating systems. Rather, they share the host operating system kernel and make use of the guest operating system system libraries for providing the required OS capabilities. Since there is no dedicated operating system, containers start much faster than VMs.\n\n
+    <font color='#800080'><b>Virtual Machines Vs ContainersImage credit: Docker Inc.</b></font>\n\n
+Containers make use of Linux kernel features such as Namespaces, Apparmor, SELinux profiles, chroot, and CGroups for providing an isolated environment similar to VMs. Linux security modules guarantee that access to the host machine and the kernel from the containers is properly managed to avoid any intrusion activities.\n In addition containers can run different Linux distributions from its host operating system if both operating systems can run on the same CPU architecture.\n
+In general, containers provide a means of creating container images based on various Linux distributions, an API for managing the lifecycle of the containers, client tools for interacting with the API, features to take snapshots, migrating container instances from one container host to another, etc.\n
+  <font color='#800080'>
+<b>Container History</b>
+    </font>\n
+Below is a short summary of container history extracted from Wikipedia and other sources:\n
+<font color='#800080'><b>1979 — chroot</b></font>\n
+The concept of containers was started way back in 1979 with UNIX chroot.
+    It’s an UNIX operating-system system call for changing the root directory of a
+    process and it is children to a new location in the filesystem which is only visible
+    to a given process.The idea of this feature is to provide an isolated disk space for each
+    process. Later in 1982 this was added to BSD.\n
+    <font color='#800080'><b>2000 — FreeBSD Jails</b></font>\n
+FreeBSD Jails is one of the early container technologies introduced by Derrick T. Woolworth at R and D Associates for FreeBSD in year 2000. It is an operating-system system call similar to chroot, but included additional process sandboxing features for isolating the filesystem, users, networking, etc. As a result it could provide means of assigning an IP address for each jail, custom software installations and configurations, etc.\n
+<font color='#800080'><b>2001 — Linux VServer</b></font>\n
+Linux VServer is a another jail mechanism that can be used to securely partition resources on a computer system (file system, CPU time, network addresses and memory). Each partition is called a security context, and the virtualized system within it is called a virtual private server.\n
+<font color='#800080'><b>2004 — Solaris Containers</b></font>\n
+Solaris Containers were introduced for x86 and SPARC systems, first released publicly in February 2004 in build 51 beta of Solaris 10, and subsequently in the first full release of Solaris 10, 2005. A Solaris Container is a combination of system resource controls and the boundary separation provided by zones. Zones act as completely isolated virtual servers within a single operating system instance.\n
+<font color='#800080'><b>2005 — OpenVZ</b></font>\n
+OpenVZ is similar to Solaris Containers and makes use of a patched Linux kernel for providing virtualization, isolation, resource management, and checkpointing. Each OpenVZ container would have an isolated file system, users and user groups, a process tree, network, devices, and IPC objects.\n
+<font color='#800080'><b>2006 — Process Containers</b></font>\n
+Process Containers was implemented at Google in year 2006 for limiting, accounting, and isolating resource usage (CPU, memory, disk I/O, network, etc.) of a collection of processes. Later on it was renamed to Control Groups to avoid the confusion multiple meanings of the term “container” in the Linux kernel context and merged to the Linux kernel 2.6.24. This shows how early Google was involved in container technology and how they have contributed back.\n
+<font color='#800080'><b>2007 — Control Groups</b></font>\n
+As explained above, Control Groups AKA cgroups was implemented by Google and added to the Linux Kernel in 2007.\n
+<font color='#800080'><b>2008 — LXC</b></font>\n
+LXC stands for LinuX Containers and it is the first, most complete implementation of Linux container manager. It was implemented using cgroups and Linux namespaces. LXC was delivered in liblxc library and provided language bindings for the API in Python3, Python2, Lua, Go, Ruby, and Haskell. Contrast to other container technologies LXC works on vanila Linux kernel without requiring any patches. Today LXC project is sponsored by Canonical Ltd. and hosted here.\n
+<font color='#800080'><b>2011 — Warden</b></font>\n
+Warden was implemented by CloudFoundry in year 2011 by using LXC at the initial stage and later on replaced with their own implementation. Unlike LXC, Warden is not tightly coupled to Linux. Rather, it can work on any operating system that can provide ways of isolating environments. It runs as a daemon and provides an API for managing the containers. Refer to Warden documentation and this blog post for more detailed information on Warden.\n
+<font color='#800080'><b>2013 — LMCTFY</b></font>\n
+lmctfy stands for “Let Me Contain That For You”. It is the open source version of Google’s container stack, which provides Linux application containers. Google started this project with the intention of providing guaranteed performance, high resource utilization, shared resources, over-commitment, and near zero overhead with containers (Ref: lmctfy presentation). The cAdvisor tool used by Kubernetes today was started as a result of lmctfy project. The initial release of lmctfy was made in Oct 2013 and in year 2015 Google has decided to contribute core lmctfy concepts and abstractions to libcontainer. As a result now no active development is done in LMCTFY.\n
+The libcontainer project was initially started by Docker and now it has been moved to Open Container Foundation.\n
+<font color='#800080'><b>2013 — Docker</b></font>\n
+Docker is the most popular and widely used container management system as of January 2016. It was developed as an internal project at a platform-as-a-service company called dotCloud and later renamed to Docker. Similar to Warden, Docker also used LXC at the initial stages and later replaced LXC with it’s own library called libcontainer. Unlike any other container platform, Docker introduced an entire ecosystem for managing containers. This includes a highly efficient, layered container image model, a global and local container registries, a clean REST API, a CLI, etc. At a later stage, Docker also took an initiative to implement a container cluster management solution called Docker Swarm.\n
+<font color='#800080'><b>2014 — Rocket</b></font>\n
+Rocket is a much similar initiative to Docker started by CoreOS for fixing some of the drawbacks they found in Docker. CoreOS has mentioned that their aim is to provide more rigorous security and production requirements than Docker. More importantly, it is implemented on App Container specifications to be a more open standard. In addition to Rocket, CoreOS also develops several other container related products used by Docker and Kubernetes: CoreOS Operating System, etcd, and flannel.\n
+<font color='#800080'><b>2016 — Windows Containers</b></font>\n
+Microsoft also took an initiative to add container support to the Microsoft Windows Server operating system in 2015 for Windows based applications, called Windows Containers. This is to be released with Microsoft Windows Server 2016. With this implementation Docker would be able to run Docker containers on Windows natively without having to run a virtual machine to run Docker (earlier Docker ran on Windows using a Linux VM).\n
+<font color='#800080'><b>The Future of Containers</b></font>\n
+As of today (Jan 2016) there is a significant trend in the industry to move towards containers from VMs for deploying software applications. \n\n The main reasons for this are the flexibility and low cost that containers provide compared to VMs. Google has used container technology for many years with Borg and Omega container cluster management platforms for running Google applications at scale. More importantly, Google has contributed to container space by implementing cgroups and participating in libcontainer projects. Google may have gained a huge gain in performance, resource utilization, and overall efficiency using containers during past years. Very recently Microsoft, who did not had an operating system level virtualization on the Windows platform took immediate action to implement native support for containers on Windows Server.\n
+Docker, Rocket, and other container platforms cannot run on a single host in a production environment, the reason is that they are exposed to single point of failure. \n While a collection of containers are run on a single host, if the host fails, all the containers that run on that host will also fail.\n  To avoid this, a container host cluster needs to be used. One of the first most open source container cluster management platforms to solve this problem was Apache Mesos.\n It was initially developed at University of California, Berkeley as a research project and later moved to Apache in around year 2012. Google took a similar step to implement a cutting edge, open source container cluster management system called Kubernetes in year 2014 with the experience they got from Borg. \n Docker also started a solution called Docker Swarm in year 2015.\n  Today these solutions are at their very early stages and it may take several months and may be another year to complete their full feature set, become stable and widely used in the industry in production environments.\n
+Microservices are another groundbreaking technology rather a software architecture which uses containers for their deployment.\n A microservice is nothing new but a lightweight implementation of a web service which can start extremely fast compared to a standard web service.\n This is done by packaging a unit of functionality (may be a single service/API method) in one service and embedding it into a lightweight web server binary.\n
+By considering the above facts we can predict that in next few years,
+    containers may take over virtual machines, and sometimes might
+    replace them completely.
+</string>
+
+  //jenkins details
+
+  <string name="jenkins_history">Jenkins is a Continuous Integration (CI) server or tool which is written in java. \n It provides Continuous Integration services for software development,\n <b>which can be started via command line or web application server</b>. \n And also,it is happy to know that Jenkins is free software to download and install.\n \n
+  <font color='#800080'><b>Before going in details to Jenkins, let me tell you what Continuous Integration (CI) is.</b></font>\n\n
+1====>Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day.\n 2===> It is a process of running your tests on a non-developer (say testers) machine automatically when someone pushes new code into the source repository.\n
+ <font color='#800080'><b>  Some of the attractive reasons why you need automate build testing and integration are:</b></font>\n\n
+<font color='#800080'><b>1.Developer time is concentrated on work that matters:</b></font>\n  Most of the work like integration and testing is managed by automated build and testing systems. So the developer’s time is saved without wasting on large-scale error-ridden integrations.\n\n
+<font color='#800080'><b>2.Software quality is made better: </b></font>\nIssues are detected and resolved almost right away which keeps the software in a state where it can be released at any time safely.\n\n
+<font color='#800080'><b>3.Makes development faster:</b></font>\n Most of the integration work is automated. Hence integration issues are less. This saves both time and money over the lifespan of a project.\n
+Continuous Build System can include tools like Jenkins, Bamboo, and Cruise Control, etc. Bamboo has better UX support but it is not a free tool. Jenkins is an open source tool, easier to setup and configure and also has a very active plug-in development community which makes it favored. Now, let us dive into the Jenkins tool.\n\n
+ <font color='#800080'><b> Jenkins History</b></font>\n\n
+Jenkins was originally developed as the Hudson project. Hudson’s creation started in summer of 2004 at Sun Microsystems. It was first released in java.net in Feb. 2005.\n
+<b>During November 2010</b>,\n an issue arose in the Hudson community with respect to the infrastructure used, which grew to encompass questions over the stewardship and control by Oracle. Negotiations between the principal project contributors and Oracle took place, and although there were many areas of the agreement a key sticking point was the trademarked name “Hudson” after Oracle claimed the right to the name and applied for a trademark in December 2010. As a result, on January 11, 2011, a call for votes was made to change the project name from “Hudson” to “Jenkins”. The proposal was overwhelmingly approved by community vote on January 29, 2011, creating the Jenkins project.\n
+<b>On February 1, 2011,</b>\n Oracle said that they intended to continue development of Hudson, and considered Jenkins a fork rather than a rename. Jenkins and Hudson, therefore, continue as two independent projects, each claiming the other is the fork.\n<b>As of December 2013,\n</b>  the Jenkins organization on GitHub had 567 project members and around 1,100 public repositories, compared with Hudson’s 32 project members and 17 public repositories.\n\n
+    <font color='#800080'><b>Let us depict a scenario where the complete source code of the application was built and then deployed on the test server for testing. It sounds like a robust way to develop software, but this method has many weaknesses. They are,</b></font>\n\n
+1===>Developers have to pause till the complete software is developed for the test results.\n
+2===>There is a huge possibility that the test results might show lot many bugs. This makes developers be in a complex situation to find the root cause of those bugs since they have to check the entire source code of the application.
+Delivery process of software is slowed down.\n
+3===>Continuous feedback referring to things like coding or architectural issues, build failures, test condition and file release uploads were missing so that the quality of software can go down.\n
+4===>The whole process was manual which increments the risk of repeated failure.\n
+5===>It is obvious from the above-stated problems that along with slow software delivery process, the quality of software also went down.\n This leads to customer unhappiness.\n So, to overcome such confusion there was a crucial demand for a system to exist where developers can gradually trigger a build and test for each and every change made in the source code. \n Therefore, Jenkins tool is used in CI. It is the most mature CI tool possible. Now let us see how Continuous Integration with Jenkins crushes the above shortcomings.\n
+For software development, we can hook it up with most of the repositories like SVN, Git, Mercurial, etc. \n Jenkins has lots of plugins that are available freely. These plugins help to integrate with various software tools for better convenience.\n
+One really nice thing about Jenkins is, build configuration files will be on disk which makes massive build cloning and reconfiguring easy.\n\n
+    <font color='#800080'><b> Advantages of Jenkins</b></font>\n\n
+1.Jenkins is an open source tool with much support from its community.\n
+2.Installation is easier.\n
+3.It has more than 1000 plug-in to make the work easier.\n
+4.It is easy to create new Jenkins plugin if one is not available.\n
+5.It is a tool which is written in Java. Hence it can be portable to almost all major platforms.\n\n</string>
+
+  //ansible details
+  <string name="ansible_history">Hello blank fragment</string>
+
+</resources>
