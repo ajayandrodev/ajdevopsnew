@@ -21,6 +21,9 @@ import com.ajayrockstarindevops.historyTools.AnsibleHistoryFragment
 import com.ajayrockstarindevops.historyTools.DockerHistoryFragment
 import com.ajayrockstarindevops.historyTools.GitHistoryFragment
 import com.ajayrockstarindevops.historyTools.JenkinsHistoryFragment
+import android.content.Intent
+
+
 
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -136,7 +139,12 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
       R.id.nav_share -> {
       //  Toast.makeText(this@NavigationDrawerActivity, "Its share!", Toast.LENGTH_SHORT).show()
-
+        val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
+        sharingIntent.type = "text/plain"
+        val shareBodyText = "Check it out. Your message goes here"
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject here")
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText)
+        startActivity(Intent.createChooser(sharingIntent, "Shearing Option"))
       }
       R.id.nav_send -> {
       //  Toast.makeText(this@NavigationDrawerActivity, "Its send!", Toast.LENGTH_SHORT).show()
