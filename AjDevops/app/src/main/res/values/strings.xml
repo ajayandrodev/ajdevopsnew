@@ -1,16 +1,16 @@
 <resources>
-  <string name="app_name">AjDevops</string>
-  <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
-  <string name="navigation_drawer_open">Open navigation drawer</string>
-  <string name="navigation_drawer_close">Close navigation drawer</string>
-  <string name="nav_header_title">Android Studio</string>
-  <string name="nav_header_subtitle">android.studio@android.com</string>
-  <string name="nav_header_desc">Navigation header</string>
-  <string name="action_settings">Settings</string>
+    <string name="app_name">AjDevops</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 
-  <!-- TODO: Remove or change this placeholder text -->
-  <string name="hello_blank_fragment">Hello blank fragment</string>
-  <string name="history">Git is, first and foremost, a version control system (VCS)and it is open source.
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="history">Git is, first and foremost, a version control system (VCS)and it is open source.
     \n \n <font color='#800080'><b>There are two types of (VCS)</b>\n.</font> \n 1. Distributed version control system (DVCS)\n2.Centralised version control systems (CVCS).\n\n There are many version control systems out
     there, for example, CVS, SVN, Mercurial, Fossil etc. \n Git is an example of Distributed version
     control System (DVCS), \n which keeps track of each modification done to the code over time, and
@@ -69,8 +69,8 @@
     \n\n Github, Gitlab, Bitbucket
   </string>
 
-  //docker details
-  <string name="docker_history">Linux containers are an operating system level virtualization technology for providing multiple isolated Linux environments on a single Linux host. Unlike virtual machines (VMs), containers do not run dedicated guest operating systems. Rather, they share the host operating system kernel and make use of the guest operating system system libraries for providing the required OS capabilities. Since there is no dedicated operating system, containers start much faster than VMs.\n\n
+    //docker details
+    <string name="docker_history">Linux containers are an operating system level virtualization technology for providing multiple isolated Linux environments on a single Linux host. Unlike virtual machines (VMs), containers do not run dedicated guest operating systems. Rather, they share the host operating system kernel and make use of the guest operating system system libraries for providing the required OS capabilities. Since there is no dedicated operating system, containers start much faster than VMs.\n\n
     <font color='#800080'><b>Virtual Machines Vs ContainersImage credit: Docker Inc.</b></font>\n\n
 Containers make use of Linux kernel features such as Namespaces, Apparmor, SELinux profiles, chroot, and CGroups for providing an isolated environment similar to VMs. Linux security modules guarantee that access to the host machine and the kernel from the containers is properly managed to avoid any intrusion activities.\n In addition containers can run different Linux distributions from its host operating system if both operating systems can run on the same CPU architecture.\n
 In general, containers provide a means of creating container images based on various Linux distributions, an API for managing the lifecycle of the containers, client tools for interacting with the API, features to take snapshots, migrating container instances from one container host to another, etc.\n
@@ -118,9 +118,9 @@ By considering the above facts we can predict that in next few years,
     replace them completely.
 </string>
 
-  //jenkins details
+    //jenkins details
 
-  <string name="jenkins_history">Jenkins is a Continuous Integration (CI) server or tool which is written in java. \n It provides Continuous Integration services for software development,\n <b>which can be started via command line or web application server</b>. \n And also,it is happy to know that Jenkins is free software to download and install.\n \n
+    <string name="jenkins_history">Jenkins is a Continuous Integration (CI) server or tool which is written in java. \n It provides Continuous Integration services for software development,\n <b>which can be started via command line or web application server</b>. \n And also,it is happy to know that Jenkins is free software to download and install.\n \n
   <font color='#800080'><b>Before going in details to Jenkins, let me tell you what Continuous Integration (CI) is.</b></font>\n\n
 1====>Continuous Integration (CI) is a development practice that requires developers to integrate code into a shared repository several times a day.\n 2===> It is a process of running your tests on a non-developer (say testers) machine automatically when someone pushes new code into the source repository.\n
  <font color='#800080'><b>  Some of the attractive reasons why you need automate build testing and integration are:</b></font>\n\n
@@ -148,7 +148,77 @@ One really nice thing about Jenkins is, build configuration files will be on dis
 4.It is easy to create new Jenkins plugin if one is not available.\n
 5.It is a tool which is written in Java. Hence it can be portable to almost all major platforms.\n\n</string>
 
-  //ansible details
-  <string name="ansible_history">Hello blank fragment</string>
+    //ansible details
+    <string name="ansible_history">Ansible is an open source tool used to deploy applications to remote nodes and provision servers in a repeatable way.\n It gives you a common framework for pushing multi-tier applications and application artifacts using a push model setup, although you can set it up as master-client if you’d like.\n Ansible is built on playbooks that you can apply to an extensive variety of systems for deploying your app.\n\n
+        <font color='#800080'> <b> When to use it:</b> </font>\n If getting up and running quickly and easily is important to you and you don’t want to install agents on remote nodes or managed servers, consider Ansible. \n It’s good if your need or focus is more on the system administrator side. Ansible is focused
+        on being streamlined and fast, so if those are key concerns for you, give it a shot.\n
+
+ <font color='#800080'> <b>Price:</b> </font>\n Free open source version, with paid plans for Ansible Tower starting at $5,000 per year (which gives you up to 100 nodes).\n\n
+ <font color='#800080'> <b>Pros:</b> </font>\n\n
+1===>SSH-based, so it doesn’t require installing any agents on remote nodes.\n
+2===>Easy learning curve thanks to the use of YAML.\n
+3===>Playbook structure is simple and clearly structured.\n
+4===>Has a variable registration feature that enables tasks to register variables for later tasks\n
+5===>Much more streamlined code base than some other tools\n\n
+  <font color='#800080'> <b>Cons:</b> </font>\n\n
+1===>Less powerful than tools based in other programming languages.\n
+2===>Does its logic through its DSL, which means checking in on the documentation frequently until you learn it\n
+3===>Variable registration is required for even basic functionality, which can make easier tasks more complicated\n
+4===>Introspection is poor. Difficult to see the values of variables within the playbooks\n
+5===>No consistency between formats of input, output, and config files\n
+6===>Struggles with performance speed at times.\n\n
+
+<font color='#800080'> <b>Basic Structure of an Ansible Project</b> </font>\n\n
+
+As part of the deployment script, we must define the Ansible structure first. In the structure, we need to define staging, production, group_vars, host_vars and roles:
+
+
+1===>The staging file will keep all test environments information\n
+2===>The production file will keep all production and Disaster Recovery (DR) environments information\n
+3===>All application server details should be mentioned in host_vars\n
+4===>All variables used in Ansible need to be furnished in group_vars\n
+5===>All templates, files and tasks are defined in roles\n
+
+Finally, we need to define a wrapper Ansible playbook to execute the roles. Under one wrapper playbook, the number of roles that will execute depends on developer needs or the project requirements. In the following subsections, I will explain each and every component of an Ansible project.\n\n
+<font color='#800080'><b>Inventory</b></font>\n
+
+Inventory plays an important role in identifying which server we will need to deploy the application using Ansible. As a best practice, it is always good to use a separate inventory for pre-production (i.e. test environments and production environment application server details). As a standard, we use it to maintain Staging and Production Ansible inventory for test and production servers respectively.\n
+
+<font color='#800080'><b>Group Variables (group_vars)</b></font>\n
+
+Group variables contain all environmental variables as well as common variables. This is the place where we can store all template variables for each environment. While running an Ansible playbook, we will specify a limit, and based on that, Ansible will use the appropriate group variables.\n
+
+
+<font color='#800080'><b>Host Variables (host_vars)</b></font>\n
+
+All the application servers’ IP addresses are stored in host_vars. In the runtime based on the inventory and limit environments, Ansible will identify the application server details from host_vars.\n
+
+
+<font color='#800080'><b>Vault</b></font>\n
+
+    Vault is a password-protected file where deployment engineers store all clear text passwords. Vault has the capability to use its own encryption to protect our passwords. These passwords might include a deployment user password, service account password, database password, and a web service password. We can use ansible-vault create or edit for creating and modifying a vault respectively.\n
+
+
+<font color='#800080'><b>Roles</b></font>\n
+
+The application deployment process always follows a set of sequential instructions. In Ansible, each instruction has been defined under a role by the software engineers. Each role consists of three components: tasks, templates and files.\n
+
+
+<font color='#800080'><b>Tasks</b></font>\n
+
+Tasks mainly perform a set of operations, which completely align with the roles objective. In order to perform the tasks, external files are kept under the files directory, and templates are kept under the templates directory. All operations under a particular task are furnished in the main.yml file.\n
+<font color='#800080'><b>Templates</b></font>\n
+For each application, all the environments have some common files. Some attributes of those common files are different based on their environment. We use templates to handle different environments with minimal changes. For example, say we have a database connection string defined in a file and that file must be deployed in all environments, but the database name in each environment is different. In that situation, the deployment engineer would create a template and keep the database name as a variable, and that variable defined under each environment group_vars along with their proper database name.\n
+<font color='#800080'><b>Files</b></font>\n
+Any type of file used by a task is kept under that task role directory. It may be any executable like .sh, .exe, .dat or a simple .txt file. An example of the basic structure of an Ansible project.
+<font color='#800080'><b>Establishing Connectivity with Various Servers</b></font>\n
+One of the most important prerequisites of an Ansible deployment is connecting it with other systems like application servers and version control systems (SVN, Bitbucket, Serena Dimension, Visual Source Safe, etc.)\n
+        <font color='#800080'><b>Connectivity with various servers</b></font>\n
+We need to establish connectivity between the version control server and the Ansible server to get the application components. We also need to deploy those source components into an application server by building connectivity between the Ansible server and the application server. In general, SSH is used for Red Hat Enterprise Linux (RHEL) system connectivity and NTLM or Kerberos is used for Windows systems.\n
+        <font color='#800080'><b>Mechanism to Run an Ansible Playbook</b></font>\n
+There are many parameters we need to consider while running an Ansible playbook. Consider a case where the developers have developed all the Ansible roles and also created some wrapper .yml files, which contain a set of roles to be executed as part of a particular deployment. The deployment engineer will run the wrapper as per their objective (deploying applications, properties, keystores, etc.)\n
+
+
+ </string>
 
 </resources>
