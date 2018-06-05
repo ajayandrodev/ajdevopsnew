@@ -62,6 +62,8 @@ class DevopsToolsFragment : Fragment() {
     users.add(DevopsToolModel("CHEF"))
     users.add(DevopsToolModel("AWS"))
     users.add(DevopsToolModel("PUPPET"))
+    users.add(DevopsToolModel("SALT"))
+
 
     //creating our adapter
     val adapter = DevopsToolAdapter(users)
