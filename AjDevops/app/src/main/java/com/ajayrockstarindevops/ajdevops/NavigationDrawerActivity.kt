@@ -22,8 +22,7 @@ import com.ajayrockstarindevops.historyTools.DockerHistoryFragment
 import com.ajayrockstarindevops.historyTools.GitHistoryFragment
 import com.ajayrockstarindevops.historyTools.JenkinsHistoryFragment
 import android.content.Intent
-
-
+import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
 
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -48,8 +47,10 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
     email.setText(personEmail)
 
     fab.setOnClickListener { view ->
-      Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-        .setAction("Action", null).show()
+      val intent = Intent(this, MainActivity::class.java)
+      startActivity(intent)
+     /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+        .setAction("Action", null).show()*/
     }
 
     val toggle = ActionBarDrawerToggle(
@@ -119,7 +120,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         // Handle the camera action
        // Toast.makeText(this@NavigationDrawerActivity, "Its git!", Toast.LENGTH_SHORT).show()
         getSupportActionBar()!!.setTitle("GIT")
-        fragment = GitHistoryFragment()
+        fragment = GitHubCommandsFragment()
       }
       R.id.nav_ansible -> {
       //  Toast.makeText(this@NavigationDrawerActivity, "Its ansible!", Toast.LENGTH_SHORT).show()
