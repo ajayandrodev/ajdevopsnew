@@ -7,11 +7,15 @@
     android:paddingRight="16dp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="JavaSampleApproach.com"
-        android:textSize="20sp" />
+        android:layout_marginTop="@dimen/_7sdp"
+        android:padding="@dimen/_8sdp"
+        android:text="upload ur own file"
+        android:textAllCaps="true"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="@dimen/_16sdp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,6 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@android:color/holo_orange_dark"
             android:text="Choose File" />
 
         <EditText
@@ -31,46 +36,27 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:hint="File Name" />
+            android:hint="Enter the file name"
+            android:textColorHint="@android:color/black" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:padding="@dimen/_10sdp"
         android:text="Upload using:"
+        android:textColor="@android:color/black"
         android:textSize="18sp" />
 
-    <LinearLayout
+    <Button
+        android:id="@+id/btn_upload_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="3">
+        android:background="@android:color/holo_orange_dark"
+        android:text="upload"
+        android:textColor="@android:color/black" />
 
-        <Button
-            android:id="@+id/btn_upload_byte"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Bytes" />
-
-        <Button
-            android:id="@+id/btn_upload_file"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="File" />
-
-        <Button
-            android:id="@+id/btn_upload_stream"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Stream" />
-
-    </LinearLayout>
 
     <TextView
         android:id="@+id/tvFileName"
@@ -80,25 +66,5 @@
         android:layout_margin="5dp"
         android:text="File Name" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="5">
-
-        <ImageView
-            android:id="@+id/imgFile"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="4.7" />
-
-        <Button
-            android:id="@+id/btn_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Back" />
-
-    </LinearLayout>
 
 </LinearLayout>
