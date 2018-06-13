@@ -1,13 +1,15 @@
 package com.ajayrockstarindevops.commandsTools
 
 
-import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-
+import android.widget.Button
 import com.ajayrockstarindevops.ajdevops.R
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import com.ajayrockstarindevops.ajdevops.StorageActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +27,7 @@ class GitHubCommandsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -38,6 +41,13 @@ class GitHubCommandsFragment : Fragment() {
         // Inflate the layout for this fragment
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_git_hub_commands, container, false)
+        val btnAdd = view.findViewById<Button>(R.id.add_task_button) as Button
+        btnAdd.setOnClickListener {
+            val intent = Intent(activity, StorageActivity::class.java)
+            startActivity(intent)
+        }
+
+
         return view;
 
 
