@@ -22,7 +22,9 @@ import java.io.IOException
 import java.io.InputStream
 
 class StorageActivity : AppCompatActivity(), View.OnClickListener {
-
+/*
+    http://javasampleapproach.com/android/kotlin-firebase-storage-download-file-example-to-memory-local-file-android
+*/
     private val TAG = "StorageActivity"
     //track Choosing Image Intent
     private val CHOOSING_IMAGE_REQUEST = 1234
