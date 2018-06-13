@@ -9,7 +9,6 @@ import com.ajayrockstarindevops.ajdevops.R
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import com.ajayrockstarindevops.ajdevops.StorageActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,7 +42,7 @@ class GitHubCommandsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_git_hub_commands, container, false)
         val btnAdd = view.findViewById<Button>(R.id.add_task_button) as Button
         btnAdd.setOnClickListener {
-            val intent = Intent(activity, StorageActivity::class.java)
+            val intent = Intent(activity,DisplayImagesActivity::class.java)
             startActivity(intent)
         }
 
