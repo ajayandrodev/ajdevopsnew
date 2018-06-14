@@ -19,8 +19,8 @@ import com.bumptech.glide.request.target.SimpleTarget
 import com.bumptech.glide.request.target.SizeReadyCallback
 import com.bumptech.glide.request.target.Target
 
-import alessandro.firebaseandroid.R
-import alessandro.firebaseandroid.adapter.CircleTransform
+import com.ajayrockstarindevops.ajdevops.R
+import com.ajayrockstarindevops.adapter.CircleTransform
 
 class FullScreenImageActivity : AppCompatActivity() {
 
@@ -40,13 +40,13 @@ class FullScreenImageActivity : AppCompatActivity() {
         setValues()
     }
 
-    fun onBackPressed() {
+   override fun onBackPressed() {
         super.onBackPressed()
         System.gc()
         finish()
     }
 
-    fun onOptionsItemSelected(item: MenuItem): Boolean {
+   override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
         if (id == android.R.id.home) {
             onBackPressed()
@@ -60,8 +60,8 @@ class FullScreenImageActivity : AppCompatActivity() {
         mImageView = findViewById(R.id.imageView) as TouchImageView
         val toolbar = findViewById(R.id.toolbar) as Toolbar
         setSupportActionBar(toolbar)
-        getSupportActionBar().setDisplayShowTitleEnabled(false)
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true)
+        getSupportActionBar()?.setDisplayShowTitleEnabled(false)
+        getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
         ivUser = toolbar.findViewById(R.id.avatar)
         tvUser = toolbar.findViewById(R.id.title)
     }

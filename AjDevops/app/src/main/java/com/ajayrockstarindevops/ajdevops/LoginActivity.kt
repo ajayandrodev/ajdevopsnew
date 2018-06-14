@@ -20,9 +20,10 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 
-import alessandro.firebaseandroid.MainActivity
-import alessandro.firebaseandroid.R
-import alessandro.firebaseandroid.util.Util
+import com.ajayrockstarindevops.ajdevops.MainActivity
+import com.ajayrockstarindevops.ajdevops.R
+import com.ajayrockstarindevops.util.Util
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener, GoogleApiClient.OnConnectionFailedListener {
 
@@ -59,7 +60,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, GoogleApiClient
 
     }
 
-    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
             val result = Auth.GoogleSignInApi.getSignInResultFromIntent(data)
@@ -79,7 +80,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, GoogleApiClient
         }
     }
 
-    fun onConnectionFailed(connectionResult: ConnectionResult) {
+   override fun onConnectionFailed(connectionResult: ConnectionResult) {
         Log.d(TAG, "onConnectionFailed:$connectionResult")
         Util.initToast(this, "Google Play Services error.")
     }
@@ -93,8 +94,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener, GoogleApiClient
         Log.d(TAG, "firebaseAuthWithGooogle:" + acct.getId())
         val credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null)
         mFirebaseAuth!!.signInWithCredential(credential)
-                .addOnCompleteListener(this, object : OnCompleteListener<AuthResult>() {
-                    fun onComplete(task: Task<AuthResult>) {
+                .addOnCompleteListener(this, object : OnCompleteListener<AuthResult> {
+                   override fun onComplete(task: Task<AuthResult>) {
                         Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful())
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithCredential", task.getException())

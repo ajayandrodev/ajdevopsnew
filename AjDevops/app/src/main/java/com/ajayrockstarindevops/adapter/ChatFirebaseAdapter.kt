@@ -15,8 +15,8 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.Query
 
-import alessandro.firebaseandroid.R
-import alessandro.firebaseandroid.model.ChatModel
+import com.ajayrockstarindevops.ajdevops.R
+import com.ajayrockstarindevops.model.ChatModel
 import hani.momanii.supernova_emoji_library.Helper.EmojiconTextView
 
 /**
@@ -24,7 +24,7 @@ import hani.momanii.supernova_emoji_library.Helper.EmojiconTextView
  */
 class ChatFirebaseAdapter(ref: DatabaseReference, private val nameUser: String, private val mClickListenerChatFirebase: ClickListenerChatFirebase) : FirebaseRecyclerAdapter<ChatModel, ChatFirebaseAdapter.MyChatViewHolder>(ChatModel::class.java, R.layout.item_message_left, ChatFirebaseAdapter.MyChatViewHolder::class.java, ref) {
 
-    fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyChatViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyChatViewHolder {
         val view: View
         if (viewType == RIGHT_MSG) {
             view = LayoutInflater.from(parent.context).inflate(R.layout.item_message_right, parent, false)
@@ -41,37 +41,37 @@ class ChatFirebaseAdapter(ref: DatabaseReference, private val nameUser: String, 
         }
     }
 
-    fun getItemViewType(position: Int): Int {
+    override fun getItemViewType(position: Int): Int {
         val model = getItem(position)
-        return if (model.getMapModel() != null) {
-            if (model.getUserModel().getName() == nameUser) {
+        return if (model.mapModel != null) {
+            if (model.userModel?.name == nameUser) {
                 RIGHT_MSG_IMG
             } else {
                 LEFT_MSG_IMG
             }
-        } else if (model.getFile() != null) {
-            if (model.getFile().getType() == "img" && model.getUserModel().getName() == nameUser) {
+        } else if (model.file != null) {
+            if (model?.file.type == "img" && model.userModel?.name == nameUser) {
                 RIGHT_MSG_IMG
             } else {
                 LEFT_MSG_IMG
             }
-        } else if (model.getUserModel().getName() == nameUser) {
+        } else if (model.userModel?.name == nameUser) {
             RIGHT_MSG
         } else {
             LEFT_MSG
         }
     }
 
-    protected fun populateViewHolder(viewHolder: MyChatViewHolder, model: ChatModel, position: Int) {
-        viewHolder.setIvUser(model.userModel.photo_profile)
+    override protected fun populateViewHolder(viewHolder: MyChatViewHolder, model: ChatModel, position: Int) {
+        viewHolder.setIvUser(model?.userModel?.photo_profile)
         viewHolder.setTxtMessage(model.message)
         viewHolder.setTvTimestamp(model.timeStamp)
         viewHolder.tvIsLocation(View.GONE)
         if (model.file != null) {
             viewHolder.tvIsLocation(View.GONE)
-            viewHolder.setIvChatPhoto(model.file.url_file)
+            viewHolder.setIvChatPhoto(model?.file?.url_file)
         } else if (model.mapModel != null) {
-            viewHolder.setIvChatPhoto(alessandro.firebaseandroid.util.Util.local(model.mapModel.latitude, model.mapModel.longitude))
+            viewHolder.setIvChatPhoto(com.ajayrockstarindevops.util.Util.local(model.mapModel?.latitude, model.mapModel?.longitude))
             viewHolder.tvIsLocation(View.VISIBLE)
         }
     }
@@ -95,10 +95,10 @@ class ChatFirebaseAdapter(ref: DatabaseReference, private val nameUser: String, 
         override fun onClick(view: View) {
             val position = getAdapterPosition()
             val model = getItem(position)
-            if (model.getMapModel() != null) {
-                mClickListenerChatFirebase.clickImageMapChat(view, position, model.getMapModel().getLatitude(), model.getMapModel().getLongitude())
+            if (model.mapModel != null) {
+                mClickListenerChatFirebase.clickImageMapChat(view, position, model.mapModel?.latitude, model.mapModel?.longitude)
             } else {
-                mClickListenerChatFirebase.clickImageChat(view, position, model.getUserModel().getName(), model.getUserModel().getPhoto_profile(), model.getFile().getUrl_file())
+                mClickListenerChatFirebase.clickImageChat(view, position, model.userModel?.name, model.userModel?.photo_profile, model.file?.url_file)
             }
         }
 
