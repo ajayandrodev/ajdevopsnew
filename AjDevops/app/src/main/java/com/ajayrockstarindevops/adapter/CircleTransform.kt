@@ -1,0 +1,44 @@
+package com.ajayrockstarindevops.adapter
+
+import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.BitmapShader
+import android.graphics.Canvas
+import android.graphics.Paint
+
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
+import com.bumptech.glide.load.resource.bitmap.BitmapTransformation
+
+/**
+ * Created by julian on 13/6/21.
+ */
+class CircleTransform(context: Context) : BitmapTransformation(context) {
+
+    override fun transform(pool: BitmapPool, toTransform: Bitmap?, outWidth: Int, outHeight: Int): Bitmap? {
+        if (toTransform == null) return null
+
+        val size = Math.min(toTransform.width, toTransform.height)
+        val x = (toTransform.width - size) / 2
+        val y = (toTransform.height - size) / 2
+
+        // TODO this could be acquired from the pool too
+        val squared = Bitmap.createBitmap(toTransform, x, y, size, size)
+
+        var result: Bitmap? = pool.get(size, size, Bitmap.Config.ARGB_8888)
+        if (result == null) {
+            result = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+        }
+
+        val canvas = Canvas(result!!)
+        val paint = Paint()
+        paint.shader = BitmapShader(squared, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP)
+        paint.isAntiAlias = true
+        val r = size / 2f
+        canvas.drawCircle(r, r, r, paint)
+        return result
+    }
+
+    override fun getId(): String {
+        return javaClass.getName()
+    }
+}

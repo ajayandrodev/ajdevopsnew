@@ -4,11 +4,16 @@ package com.ajayrockstarindevops.commandsTools
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import com.ajayrockstarindevops.ajdevops.R
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import com.google.firebase.database.DatabaseReference
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import com.google.firebase.database.FirebaseDatabase
+import com.ajayrockstarindevops.model.Blog
+import com.ajayrockstarindevops.model.BlogViewHolder
+import com.firebase.ui.database.FirebaseRecyclerAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,6 +31,11 @@ class GitHubCommandsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private val TAG = GitHubCommandsFragment::class.java!!.getSimpleName()
+    private var recipeRecyclerview: RecyclerView? = null
+    private var linearLayoutManager: LinearLayoutManager? = null
+    private var mDatabaseRef: DatabaseReference? = null
+    private var childRef: DatabaseReference? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +50,28 @@ class GitHubCommandsFragment : Fragment() {
         // Inflate the layout for this fragment
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_git_hub_commands, container, false)
-       
+        linearLayoutManager = LinearLayoutManager(activity)
+        recipeRecyclerview = view.findViewById(R.id.recipe_categories) as RecyclerView
+        recipeRecyclerview?.setHasFixedSize(false)
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference()
+        childRef = mDatabaseRef?.child("users")
+        val recyclerAdapter = object : FirebaseRecyclerAdapter<Blog, BlogViewHolder>(
+                Blog::class.java,
+                R.layout.recipe_category_list,
+                BlogViewHolder::class.java,
+                childRef
+        ) {
+            override protected fun populateViewHolder(viewHolder: BlogViewHolder, model: Blog, position: Int) {
+                viewHolder.setTitle(model.title + "")
+                viewHolder.setDescription(model.description + "")
+                // viewHolder.setImage(model.getImage())
+            }
+        }
+/*
+        mRecipeAdapter = RecipeAdapter(Blog::class.java, R.layout.recipe_category_list, BlogViewHolder::class.java, childRef)
+*/
+        recipeRecyclerview?.layoutManager = linearLayoutManager
+        recipeRecyclerview?.adapter = recyclerAdapter
 
         return view;
 
