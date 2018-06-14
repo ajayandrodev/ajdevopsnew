@@ -40,12 +40,7 @@ class GitHubCommandsFragment : Fragment() {
         // Inflate the layout for this fragment
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_git_hub_commands, container, false)
-        val btnAdd = view.findViewById<Button>(R.id.add_task_button) as Button
-        btnAdd.setOnClickListener {
-            val intent = Intent(activity,DisplayImagesActivity::class.java)
-            startActivity(intent)
-        }
-
+       
 
         return view;
 
