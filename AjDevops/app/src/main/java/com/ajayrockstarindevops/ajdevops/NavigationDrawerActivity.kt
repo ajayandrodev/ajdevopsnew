@@ -22,7 +22,10 @@ import com.ajayrockstarindevops.historyTools.DockerHistoryFragment
 import com.ajayrockstarindevops.historyTools.GitHistoryFragment
 import com.ajayrockstarindevops.historyTools.JenkinsHistoryFragment
 import android.content.Intent
+import com.ajayrockstarindevops.commandsTools.AnsibleCommandsFragment
+import com.ajayrockstarindevops.commandsTools.DockerCommnadsFragment
 import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
+import com.ajayrockstarindevops.commandsTools.JenkinsCommandsFragment
 
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -125,17 +128,17 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
       R.id.nav_ansible -> {
       //  Toast.makeText(this@NavigationDrawerActivity, "Its ansible!", Toast.LENGTH_SHORT).show()
         getSupportActionBar()!!.setTitle("ANSIBLE")
-        fragment = AnsibleHistoryFragment()
+        fragment = AnsibleCommandsFragment()
       }
       R.id.nav_jenkins -> {
       ///  Toast.makeText(this@NavigationDrawerActivity, "Its jenkins!", Toast.LENGTH_SHORT).show()
         getSupportActionBar()!!.setTitle("JENKINS")
-        fragment = JenkinsHistoryFragment()
+        fragment = JenkinsCommandsFragment()
       }
       R.id.nav_docker -> {
      //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
         getSupportActionBar()!!.setTitle("DOCKER")
-        fragment = DockerHistoryFragment()
+        fragment = DockerCommnadsFragment()
       }
 
       R.id.nav_share -> {

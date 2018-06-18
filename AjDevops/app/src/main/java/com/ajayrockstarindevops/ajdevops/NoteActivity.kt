@@ -10,9 +10,10 @@ import android.util.Log
 import android.widget.Toast
 
 import com.google.firebase.firestore.FirebaseFirestore
-import com.ajayrockstarindevops.model.Note
 
 import kotlinx.android.synthetic.main.activity_note.*
+import com.ajayrockstarindevops.model.Note
+
 
 class NoteActivity : AppCompatActivity() {
 

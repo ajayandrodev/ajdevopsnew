@@ -14,11 +14,11 @@ import android.widget.TextView
 
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.Note
 
 import android.content.Intent
 import com.ajayrockstarindevops.ajdevops.NoteActivity
 import android.widget.Toast
+import com.ajayrockstarindevops.model.Note
 
 class NoteRecyclerViewAdapter(private val notesList: MutableList<Note>,private val context: Context,
         private val firestoreDB: FirebaseFirestore): RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {

@@ -6,22 +6,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.ajayrockstarindevops.adapter.GitAdapter
+import com.ajayrockstarindevops.adapter.GitAdapter.GitAdapter
 import com.ajayrockstarindevops.ajdevops.R
 
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.model.GitModel
-import android.widget.Toast
-import com.ajayrockstarindevops.ajdevops.R.id.recyclerView
+import com.ajayrockstarindevops.model.GitModel.GitModel
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.DefaultItemAnimator
-import com.ajayrockstarindevops.ajdevops.R.id.recyclerView
-
-
-
-
 
 
 // TODO: Rename parameter arguments, choose names that match

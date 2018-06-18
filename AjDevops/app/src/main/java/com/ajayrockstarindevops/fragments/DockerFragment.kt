@@ -8,11 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.DockerAdapter
-import com.ajayrockstarindevops.adapter.GitAdapter
+import com.ajayrockstarindevops.adapter.DockerAdapter.DockerAdapter
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.DockerModel
-import com.ajayrockstarindevops.model.GitModel
+import com.ajayrockstarindevops.model.DockerModel.DockerModel
 
 
 // TODO: Rename parameter arguments, choose names that match

@@ -1,4 +1,4 @@
-package com.ajayrockstarindevops.model
+package com.ajayrockstarindevops.model.AnsibleModel
 
 
 /**

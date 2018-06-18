@@ -1,11 +1,11 @@
-package com.ajayrockstarindevops.adapter
+package com.ajayrockstarindevops.adapter.GitAdapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.ajayrockstarindevops.model.GitModel
+import com.ajayrockstarindevops.model.GitModel.GitModel
 import com.ajayrockstarindevops.ajdevops.R
 
 /**
@@ -14,13 +14,13 @@ import com.ajayrockstarindevops.ajdevops.R
 class GitAdapter(val userList: ArrayList<GitModel>) : RecyclerView.Adapter<GitAdapter.ViewHolder>()  {
 
   //this method is returning the view for each item in the list
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitAdapter.ViewHolder {
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     val v = LayoutInflater.from(parent.context).inflate(R.layout.git_list_layout, parent, false)
     return ViewHolder(v)
   }
 
   //this method is binding the data on the list
-  override fun onBindViewHolder(holder: GitAdapter.ViewHolder, position: Int) {
+  override fun onBindViewHolder(holder: ViewHolder, position: Int) {
     holder.bindItems(userList[position])
   }
 
