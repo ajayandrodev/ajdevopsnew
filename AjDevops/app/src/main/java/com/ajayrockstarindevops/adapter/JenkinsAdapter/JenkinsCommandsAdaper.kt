@@ -13,11 +13,11 @@ import com.ajayrockstarindevops.model.JenkinsModel.JenkinsModel
 /**
  * Created by Ajay on 6/18/2018.
  */
-class JenkinsCommandsAdaper (val userList: ArrayList<JenkinsCommandsModel>) : RecyclerView.Adapter<JenkinsCommandsAdaper.ViewHolder>()  {
+class JenkinsCommandsAdaper(val userList: ArrayList<JenkinsCommandsModel>) : RecyclerView.Adapter<JenkinsCommandsAdaper.ViewHolder>() {
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.git_list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.jenkins_command_list_layout, parent, false)
         return ViewHolder(v)
     }
 
@@ -35,8 +35,12 @@ class JenkinsCommandsAdaper (val userList: ArrayList<JenkinsCommandsModel>) : Re
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(user: JenkinsCommandsModel) {
-            val textViewName = itemView.findViewById(R.id.textViewUsername) as TextView
-            textViewName.text = user.name
+            val textViewJenkinsTitle = itemView.findViewById(R.id.textViewUsername) as TextView
+            textViewJenkinsTitle.text = user.title
+            val textViewJenkinsDis = itemView.findViewById(R.id.textViewUsername) as TextView
+            textViewJenkinsDis.text = user.discription
+            val textViewJenkinsExam = itemView.findViewById(R.id.textViewUsername) as TextView
+            textViewJenkinsExam.text = user.example
         }
     }
 }
