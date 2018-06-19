@@ -17,7 +17,7 @@ class AnsibleCommandsAdapter(val userList: ArrayList<AnsibleCommandsModel>) : Re
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.git_list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.ansible_command_list_layout, parent, false)
         return ViewHolder(v)
     }
 
@@ -35,8 +35,12 @@ class AnsibleCommandsAdapter(val userList: ArrayList<AnsibleCommandsModel>) : Re
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(user: AnsibleCommandsModel) {
-            val textViewName = itemView.findViewById(R.id.textViewUsername) as TextView
-            textViewName.text = user.name
+            val textViewAnsibleTitle = itemView.findViewById(R.id.ansible_title) as TextView
+            textViewAnsibleTitle.text = user.title
+            val textViewAnsibleDis = itemView.findViewById(R.id.ansible_discription) as TextView
+            textViewAnsibleDis.text = user.discription
+            val textViewAnsibleExa = itemView.findViewById(R.id.ansible_example) as TextView
+            textViewAnsibleExa.text = user.example
         }
     }
 }

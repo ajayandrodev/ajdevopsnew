@@ -35,12 +35,11 @@ class JenkinsCommandsAdaper(val userList: ArrayList<JenkinsCommandsModel>) : Rec
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(user: JenkinsCommandsModel) {
-            val textViewJenkinsTitle = itemView.findViewById(R.id.textViewUsername) as TextView
+            val textViewJenkinsTitle = itemView.findViewById(R.id.jenkins_title) as TextView
             textViewJenkinsTitle.text = user.title
-            val textViewJenkinsDis = itemView.findViewById(R.id.textViewUsername) as TextView
+            val textViewJenkinsDis = itemView.findViewById(R.id.jenkins_discription) as TextView
             textViewJenkinsDis.text = user.discription
-            val textViewJenkinsExam = itemView.findViewById(R.id.textViewUsername) as TextView
-            textViewJenkinsExam.text = user.example
+
         }
     }
 }

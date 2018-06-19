@@ -24,7 +24,7 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DevopsToolAdapter.ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.git_list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.devops_list_layout, parent, false)
         return ViewHolder(v)
     }
 

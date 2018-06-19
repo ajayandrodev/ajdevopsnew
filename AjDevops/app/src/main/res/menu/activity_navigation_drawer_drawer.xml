@@ -1,43 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
-  tools:showIn="navigation_view">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
-  <group android:checkableBehavior="single">
-    <item
-      android:id="@+id/nav_dev_tool"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="DevOps Tools" />
-    <item
-      android:id="@+id/nav_git"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="Git" />
-    <item
-      android:id="@+id/nav_jenkins"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="Jenkins" />
-    <item
-      android:id="@+id/nav_ansible"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="Ansible" />
-    <item
-      android:id="@+id/nav_docker"
-      android:icon="@drawable/ic_menu_gallery"
-      android:title="Docker" />
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dev_tool"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="DevOps Tools" />
+        <item
+            android:id="@+id/nav_git"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Git" />
+        <item
+            android:id="@+id/nav_jenkins"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Jenkins" />
+        <item
+            android:id="@+id/nav_ansible"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Ansible" />
+        <item
+            android:id="@+id/nav_docker"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Docker" />
+        <item
+            android:id="@+id/nav_aws"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Aws" />
+        <item
+            android:id="@+id/nav_kubernet"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Kubernet" />
+        <item
+            android:id="@+id/nav_linux"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Linux" />
+        <item
+            android:id="@+id/nav_nginx"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Nginx" />
+        <item
+            android:id="@+id/nav_chef"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Chef" />
+        <item
+            android:id="@+id/nav_puppet"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Puppet" />
+        <item
+            android:id="@+id/nav_python"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Python" />
+        <item
+            android:id="@+id/nav_shellscript"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="ShellScript" />
+        <item
+            android:id="@+id/nav_salt"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Salt" />
+        <item
+            android:id="@+id/nav_nagios"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Nagios" />
+        <item
+            android:id="@+id/nav_elk"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="ELK" />
 
-  </group>
 
-  <item android:title="Communicate">
-    <menu>
-      <item
-        android:id="@+id/nav_share"
-        android:icon="@drawable/ic_menu_share"
-        android:title="Share" />
-      <item
-        android:id="@+id/nav_send"
-        android:icon="@drawable/ic_menu_send"
-        android:title="Send" />
-    </menu>
-  </item>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
 
 </menu>
