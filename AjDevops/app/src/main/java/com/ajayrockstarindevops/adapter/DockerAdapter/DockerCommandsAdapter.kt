@@ -16,7 +16,7 @@ class DockerCommandsAdapter(val userList: ArrayList<DockerCommandsModel>) : Recy
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.git_list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.docker_command_list_layout, parent, false)
         return ViewHolder(v)
     }
 
@@ -34,8 +34,12 @@ class DockerCommandsAdapter(val userList: ArrayList<DockerCommandsModel>) : Recy
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(user: DockerCommandsModel) {
-            val textViewName = itemView.findViewById(R.id.textViewUsername) as TextView
-            textViewName.text = user.name
+            val textViewDockerTitle = itemView.findViewById(R.id.docker_title) as TextView
+            textViewDockerTitle.text = user.title
+            val textViewDockerDis = itemView.findViewById(R.id.docker_discription) as TextView
+            textViewDockerDis.text = user.discription
+            val textViewDockerExam = itemView.findViewById(R.id.docker_example) as TextView
+            textViewDockerExam.text = user.example
         }
     }
 }
