@@ -1,30 +1,40 @@
-package com.ajayrockstarindevops.ajdevops
+package com.ajayrockstarindevops.firebaseData
+
 
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
-import android.provider.MediaStore
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_storage.*
+import android.support.v4.app.Fragment
 import android.text.TextUtils
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.MimeTypeMap
-import android.widget.*
+import android.widget.Toast
 
+import com.ajayrockstarindevops.ajdevops.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.activity_storage.*
 
-import java.io.ByteArrayOutputStream
-import java.io.FileNotFoundException
-import java.io.IOException
-import java.io.InputStream
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-class StorageActivity : AppCompatActivity(), View.OnClickListener {
-    /*
-        http://javasampleapproach.com/android/kotlin-firebase-storage-download-file-example-to-memory-local-file-android
-    */
+/**
+ * A simple [Fragment] subclass.
+ * Use the [StorageFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ *
+ */
+class StorageFragment : Fragment(), View.OnClickListener  {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
+
     private val TAG = "StorageActivity"
     //track Choosing Image Intent
     private val CHOOSING_IMAGE_REQUEST = 1234
@@ -35,14 +45,23 @@ class StorageActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_storage)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.fragment_storage, container, false)
+        //getting recyclerview from xml
         tvFileName.text = ""
 
         imageReference = FirebaseStorage.getInstance().reference.child("images")
 
         btn_choose_file.setOnClickListener(this)
         btn_upload_file.setOnClickListener(this)
+        return view
     }
 
     override fun onClick(view: View?) {
@@ -53,8 +72,6 @@ class StorageActivity : AppCompatActivity(), View.OnClickListener {
             R.id.btn_upload_file -> uploadFile()
         }
     }
-
-
     private fun uploadFile() {
         if (fileUri != null) {
             val fileName = edtFileName.text.toString()
@@ -69,10 +86,10 @@ class StorageActivity : AppCompatActivity(), View.OnClickListener {
                         Log.e(TAG, "Uri: " + taskSnapshot.downloadUrl)
                         Log.e(TAG, "Name: " + taskSnapshot.metadata!!.name)
                         tvFileName.text = taskSnapshot.metadata!!.path + " - " + taskSnapshot.metadata!!.sizeBytes / 1024 + " KBs"
-                        Toast.makeText(this, "File Uploaded ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "File Uploaded ", Toast.LENGTH_LONG).show()
                     }
                     .addOnFailureListener { exception ->
-                        Toast.makeText(this, exception.message, Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, exception.message, Toast.LENGTH_LONG).show()
                     }
                     .addOnProgressListener { taskSnapshot ->
                         // progress percentage
@@ -85,29 +102,9 @@ class StorageActivity : AppCompatActivity(), View.OnClickListener {
                     .addOnPausedListener { System.out.println("Upload is paused!") }
 
         } else {
-            Toast.makeText(this, "No File!", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, "No File!", Toast.LENGTH_LONG).show()
         }
     }
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (bitmap != null) {
-            bitmap!!.recycle()
-        }
-
-        if (requestCode == CHOOSING_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.data != null) {
-            fileUri = data.data
-            try {
-                bitmap = MediaStore.Images.Media.getBitmap(contentResolver, fileUri)
-                //  imgFile.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
     private fun showChoosingFile() {
         val intent = Intent()
         intent.type = "image/*"
@@ -116,22 +113,42 @@ class StorageActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun getFileExtension(uri: Uri): String {
-        val contentResolver = contentResolver
+        val contentResolver = activity?.contentResolver
         val mime = MimeTypeMap.getSingleton()
 
-        return mime.getExtensionFromMimeType(contentResolver.getType(uri))
+        return mime.getExtensionFromMimeType(contentResolver?.getType(uri))
     }
 
     private fun validateInputFileName(fileName: String): Boolean {
         if (TextUtils.isEmpty(fileName)) {
-            Toast.makeText(this, "Enter file name!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Enter file name!", Toast.LENGTH_SHORT).show()
             return false
         }
-       /* else if (fileName.equals(edtFileName.text.toString())) {
-            Toast.makeText(this, "File is already exist!", Toast.LENGTH_SHORT).show()
-            return false
-        }*/
+        /* else if (fileName.equals(edtFileName.text.toString())) {
+             Toast.makeText(this, "File is already exist!", Toast.LENGTH_SHORT).show()
+             return false
+         }*/
 
         return true
+    }
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment StorageFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+                StorageFragment().apply {
+                    arguments = Bundle().apply {
+                        putString(ARG_PARAM1, param1)
+                        putString(ARG_PARAM2, param2)
+                    }
+                }
     }
 }

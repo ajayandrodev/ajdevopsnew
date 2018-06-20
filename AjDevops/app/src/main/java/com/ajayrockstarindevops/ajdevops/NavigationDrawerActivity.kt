@@ -26,6 +26,8 @@ import com.ajayrockstarindevops.commandsTools.AnsibleCommandsFragment
 import com.ajayrockstarindevops.commandsTools.DockerCommnadsFragment
 import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
 import com.ajayrockstarindevops.commandsTools.JenkinsCommandsFragment
+import com.ajayrockstarindevops.firebaseData.MainFragment
+import com.ajayrockstarindevops.firebaseData.StorageFragment
 
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -84,7 +86,11 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         alertDialogBuilder
                 .setMessage("Do you want to exit?")
                 .setCancelable(false)
-                .setPositiveButton("Yes") { dialog, id -> finish() }
+                .setPositiveButton("Yes") { dialog, id ->
+                    /*finish()*/
+                    val intent = Intent(this, GoogleSigninActivity::class.java)
+                    startActivity(intent)
+                }
                 .setNegativeButton("No") { dialog, id -> dialog.cancel() }
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
@@ -119,82 +125,98 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 getSupportActionBar()!!.setTitle("DEVOPS TOOLS")
                 fragment = DevopsToolsFragment()
             }
-            R.id.nav_git -> {
+            R.id.nav_added_notes -> {
                 // Handle the camera action
                 // Toast.makeText(this@NavigationDrawerActivity, "Its git!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("GIT")
-                fragment = GitHubCommandsFragment()
+                getSupportActionBar()!!.setTitle("ADD NOTES")
+                fragment = MainFragment()
+                /*  val intent = Intent(this, MainActivity::class.java)
+                  startActivity(intent)*/
             }
-            R.id.nav_ansible -> {
-                //  Toast.makeText(this@NavigationDrawerActivity, "Its ansible!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("ANSIBLE")
-                fragment = AnsibleCommandsFragment()
+            R.id.nav_upload_file -> {
+                // Handle the camera action
+                // Toast.makeText(this@NavigationDrawerActivity, "Its git!", Toast.LENGTH_SHORT).show()
+                getSupportActionBar()!!.setTitle("UPLOAD FILES")
+                fragment = StorageFragment()
+                /*  val intent = Intent(this, StorageActivity::class.java)
+                  startActivity(intent)*/
             }
-            R.id.nav_jenkins -> {
-                ///  Toast.makeText(this@NavigationDrawerActivity, "Its jenkins!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("JENKINS")
-                fragment = JenkinsCommandsFragment()
-            }
-            R.id.nav_docker -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("DOCKER")
-                fragment = DockerCommnadsFragment()
-            }
-            R.id.nav_linux -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("LINUX")
-                fragment = LinuxFragment()
-            }
-            R.id.nav_aws -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("AWS")
-                fragment = AwsFragment()
-            }
-            R.id.nav_kubernet -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("KUBERNET")
-                fragment = KubernetFragment()
-            }
-            R.id.nav_nginx -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("NGINX")
-                fragment = NginxFragment()
-            }
-            R.id.nav_shellscript -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("SHELL SCRIPT")
-                fragment = ShellScriptFragment()
-            }
-            R.id.nav_nagios -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("NAGIOS")
-                fragment = NagiosFragment()
-            }
-            R.id.nav_chef -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("CHEF")
-                fragment = ChefFragment()
-            }
-            R.id.nav_puppet -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("PUPPET")
-                fragment = PuppetFragment()
-            }
-            R.id.nav_python -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("PYTHON")
-                fragment = PythonFragment()
-            }
-            R.id.nav_salt -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("SALTSTACK")
-                fragment = SaltFragment()
-            }
-            R.id.nav_elk -> {
-                //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
-                getSupportActionBar()!!.setTitle("ELK")
-                fragment = ElkFragment()
-            }
+        /*  R.id.nav_git -> {
+              // Handle the camera action
+              // Toast.makeText(this@NavigationDrawerActivity, "Its git!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("GIT")
+              fragment = GitHubCommandsFragment()
+          }
+          R.id.nav_ansible -> {
+              //  Toast.makeText(this@NavigationDrawerActivity, "Its ansible!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("ANSIBLE")
+              fragment = AnsibleCommandsFragment()
+          }
+          R.id.nav_jenkins -> {
+              ///  Toast.makeText(this@NavigationDrawerActivity, "Its jenkins!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("JENKINS")
+              fragment = JenkinsCommandsFragment()
+          }
+          R.id.nav_docker -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("DOCKER")
+              fragment = DockerCommnadsFragment()
+          }
+          R.id.nav_linux -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("LINUX")
+              fragment = LinuxFragment()
+          }
+          R.id.nav_aws -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("AWS")
+              fragment = AwsFragment()
+          }
+          R.id.nav_kubernet -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("KUBERNET")
+              fragment = KubernetFragment()
+          }
+          R.id.nav_nginx -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("NGINX")
+              fragment = NginxFragment()
+          }
+          R.id.nav_shellscript -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("SHELL SCRIPT")
+              fragment = ShellScriptFragment()
+          }
+          R.id.nav_nagios -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("NAGIOS")
+              fragment = NagiosFragment()
+          }
+          R.id.nav_chef -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("CHEF")
+              fragment = ChefFragment()
+          }
+          R.id.nav_puppet -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("PUPPET")
+              fragment = PuppetFragment()
+          }
+          R.id.nav_python -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("PYTHON")
+              fragment = PythonFragment()
+          }
+          R.id.nav_salt -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("SALTSTACK")
+              fragment = SaltFragment()
+          }
+          R.id.nav_elk -> {
+              //   Toast.makeText(this@NavigationDrawerActivity, "Its docker!", Toast.LENGTH_SHORT).show()
+              getSupportActionBar()!!.setTitle("ELK")
+              fragment = ElkFragment()
+          }*/
             R.id.nav_share -> {
                 //  Toast.makeText(this@NavigationDrawerActivity, "Its share!", Toast.LENGTH_SHORT).show()
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)

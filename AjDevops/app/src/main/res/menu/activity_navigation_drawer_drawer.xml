@@ -9,6 +9,14 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="DevOps Tools" />
         <item
+            android:id="@+id/nav_upload_file"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="UpLoad Files" />
+        <item
+            android:id="@+id/nav_added_notes"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Added Notes" />
+    <!--    <item
             android:id="@+id/nav_git"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Git" />
@@ -67,7 +75,7 @@
         <item
             android:id="@+id/nav_elk"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="ELK" />
+            android:title="ELK" />-->
 
 
     </group>

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="#C0C0C0">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -15,11 +16,12 @@
             android:id="@+id/textViewUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
+            android:background="@android:color/holo_orange_dark"
             android:padding="@dimen/_12sdp"
-            android:text="git"
+            android:text="upload"
             android:textAllCaps="true"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold|normal" />
 
