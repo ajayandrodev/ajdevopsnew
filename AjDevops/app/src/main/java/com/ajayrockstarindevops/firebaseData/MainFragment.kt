@@ -48,6 +48,7 @@ class MainFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
+            setHasOptionsMenu(true);
         }
     }
 
@@ -113,9 +114,13 @@ class MainFragment : Fragment() {
     override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
         activity?.menuInflater?.inflate(R.menu.menu_main, menu)
 
-        super.onCreateOptionsMenu(menu, inflater)
+        return  super.onCreateOptionsMenu(menu, inflater)
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu?) {
+        super.onPrepareOptionsMenu(menu)
+        val menuItem = menu?.findItem(R.id.addNote)
+    }
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
             if (item.itemId == R.id.addNote) {

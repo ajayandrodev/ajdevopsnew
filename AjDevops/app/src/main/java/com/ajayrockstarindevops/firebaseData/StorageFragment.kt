@@ -12,12 +12,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.MimeTypeMap
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 
 import com.ajayrockstarindevops.ajdevops.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.activity_storage.*
+import kotlinx.android.synthetic.main.fragment_storage.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,12 +32,12 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  *
  */
-class StorageFragment : Fragment(), View.OnClickListener  {
+class StorageFragment : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
-    private val TAG = "StorageActivity"
+    private val TAG = "StorageFragment"
     //track Choosing Image Intent
     private val CHOOSING_IMAGE_REQUEST = 1234
 
@@ -55,12 +57,15 @@ class StorageFragment : Fragment(), View.OnClickListener  {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_storage, container, false)
         //getting recyclerview from xml
+        val tvFileName = view.findViewById(R.id.tvFileName) as TextView
+        val btnchoosefile = view.findViewById(R.id.btn_choose_file_new) as Button
+        val btnuploadfile = view.findViewById(R.id.btn_upload_file_new) as Button
         tvFileName.text = ""
 
         imageReference = FirebaseStorage.getInstance().reference.child("images")
 
-        btn_choose_file.setOnClickListener(this)
-        btn_upload_file.setOnClickListener(this)
+        btnchoosefile.setOnClickListener(this)
+        btnuploadfile.setOnClickListener(this)
         return view
     }
 
@@ -68,10 +73,11 @@ class StorageFragment : Fragment(), View.OnClickListener  {
         val i = view!!.id
 
         when (i) {
-            R.id.btn_choose_file -> showChoosingFile()
-            R.id.btn_upload_file -> uploadFile()
+            R.id.btn_choose_file_new -> showChoosingFile()
+            R.id.btn_upload_file_new -> uploadFile()
         }
     }
+
     private fun uploadFile() {
         if (fileUri != null) {
             val fileName = edtFileName.text.toString()
@@ -105,6 +111,7 @@ class StorageFragment : Fragment(), View.OnClickListener  {
             Toast.makeText(context, "No File!", Toast.LENGTH_LONG).show()
         }
     }
+
     private fun showChoosingFile() {
         val intent = Intent()
         intent.type = "image/*"
