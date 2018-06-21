@@ -48,7 +48,6 @@ class MainFragment : Fragment() {
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
-            setHasOptionsMenu(true);
         }
     }
 

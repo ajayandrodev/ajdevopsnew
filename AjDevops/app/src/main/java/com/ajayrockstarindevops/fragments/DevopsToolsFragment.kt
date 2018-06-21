@@ -49,7 +49,7 @@ class DevopsToolsFragment : Fragment() {
         recyclerView.setHasFixedSize(true)
         val itemDecor = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
         val spanCount = 2 // 2 columns
-        val spacing = 10 // 10px
+        val spacing = 5 // 10px
         val includeEdge = false
         recyclerView.addItemDecoration(GridSpacingItemDecoration(spanCount, spacing, includeEdge))
         recyclerView.itemAnimator = DefaultItemAnimator()

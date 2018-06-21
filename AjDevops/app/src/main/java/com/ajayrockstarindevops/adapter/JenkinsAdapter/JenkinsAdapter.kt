@@ -1,11 +1,22 @@
 package com.ajayrockstarindevops.adapter.JenkinsAdapter
 
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.ajayrockstarindevops.additionalInfoTools.GitHubAdditionalInfoFragment
+import com.ajayrockstarindevops.additionalInfoTools.JenkinsAdditionalInfoFragment
 import com.ajayrockstarindevops.ajdevops.R
+import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
+import com.ajayrockstarindevops.commandsTools.JenkinsCommandsFragment
+import com.ajayrockstarindevops.fragments.JenkinsFragment
+import com.ajayrockstarindevops.historyTools.GitHistoryFragment
+import com.ajayrockstarindevops.historyTools.JenkinsHistoryFragment
+import com.ajayrockstarindevops.interviewQuestionsTools.GitInterviewQuestionsFragment
+import com.ajayrockstarindevops.interviewQuestionsTools.JenkinsInterviewQuestionsFragment
 import com.ajayrockstarindevops.model.JenkinsModel.JenkinsModel
 
 
@@ -36,6 +47,33 @@ class JenkinsAdapter(val userList: ArrayList<JenkinsModel>) : RecyclerView.Adapt
     fun bindItems(user: JenkinsModel) {
       val textViewName = itemView.findViewById(R.id.textViewUsername) as TextView
       textViewName.text = user.name
+      itemView.setOnClickListener { v: View ->
+        var position: Int = getAdapterPosition()
+        val activity = itemView.getContext() as AppCompatActivity
+        var myFragment: Fragment? = null
+
+        when (adapterPosition) {
+          0 -> {
+             myFragment = JenkinsHistoryFragment()
+
+          }
+          1 -> {
+             myFragment = JenkinsCommandsFragment()
+
+          }
+          2 -> {
+             myFragment = JenkinsInterviewQuestionsFragment()
+
+          }
+          3 -> {
+             myFragment = JenkinsAdditionalInfoFragment()
+
+          }
+        }
+        activity.supportFragmentManager.beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit()
+
+      }
+
     }
   }
 }

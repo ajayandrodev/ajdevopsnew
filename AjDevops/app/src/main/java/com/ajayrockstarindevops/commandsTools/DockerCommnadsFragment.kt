@@ -68,7 +68,7 @@ class DockerCommnadsFragment : Fragment() {
         users.add(DockerCommandsModel("docker ps", "This command is used to list the running containers\n", ""))
         users.add(DockerCommandsModel("docker ps -a", "This command is used to show all the running and exited containers", ""))
         users.add(DockerCommandsModel("docker exec -it <container id> bash", "This command is used to access the running container", "Example\ndocker exec -it fe63e70a1c9c bash"))
-        users.add(DockerCommandsModel("docker stop <container id>", "This command stops a running container", "Example+\n+ docker stop fe63e70a1c9c"))
+        users.add(DockerCommandsModel("docker stop <container id>", "This command stops a running container", "Example\ndocker stop fe63e70a1c9c"))
         users.add(DockerCommandsModel("docker kill <container id>", "This command kills the container by stopping its execution immediately. The difference between ‘docker kill’ and ‘docker stop’ is that ‘docker stop’ gives the container time to shutdown gracefully, in situations when it is taking too much time for getting the container to stop, one can opt to kill it", "Example\ndocker kill fe63e70a1c9c"))
         users.add(DockerCommandsModel("docker commit <conatainer id> <username/imagename>", "This command creates a new image of an edited container on the local system\n" +
                 "\n", "Example\ndocker commit fe63e70a1c9c ajay/ubuntunew"))

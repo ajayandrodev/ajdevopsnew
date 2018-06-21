@@ -2,7 +2,6 @@ package com.ajayrockstarindevops.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.ajayrockstarindevops.ajdevops.R
@@ -10,11 +9,12 @@ import com.ajayrockstarindevops.model.DevopsToolModel
 import android.widget.Toast
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
-import com.ajayrockstarindevops.historyTools.GitHistoryFragment
 
 import com.ajayrockstarindevops.fragments.*
 import android.support.v7.app.AppCompatActivity
-
+import com.ajayrockstarindevops.firebaseData.MainFragment
+import kotlinx.android.synthetic.main.devops_list_layout.*
+import android.view.View
 
 
 /**
@@ -46,21 +46,78 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
             textViewName.text = user.name
             itemView.setOnClickListener { v: View ->
                 var position: Int = getAdapterPosition()
+                val activity = itemView.getContext() as AppCompatActivity
+                var myFragment: Fragment? = null
 
-                if (position == 0) {
-                    Snackbar.make(v, "Click detected on item pppppppppp $position",
-                            Snackbar.LENGTH_LONG).setAction("Action", null).show()
-                } else if (position == 1) {
-                    Snackbar.make(v, "Click detected on item 3333333$position",
-                            Snackbar.LENGTH_LONG).setAction("Action", null).show()
-                } else {
-                    Snackbar.make(v, "Click detected on item44444444 $position",
-                            Snackbar.LENGTH_LONG).setAction("Action", null).show()
-                }
+                when (adapterPosition) {
+                    0 -> {
+                         myFragment = GitHubFragment()
+
+                    }
+                    1 -> {
+                         myFragment = JenkinsFragment()
+
+                    }
+                    2 -> {
+                         myFragment = DockerFragment()
+
+                    }
+                    3 -> {
+                         myFragment = AnsibleFragment()
+
+                    }
+                    4 -> {
+                         myFragment = NginxFragment()
+
+                    }
+                    5 -> {
+                         myFragment = ChefFragment()
+
+                    }
+                    6 -> {
+                         myFragment = AwsFragment()
+
+                    }
+                    7 -> {
+                         myFragment = PuppetFragment()
+
+                    }
+                    8 -> {
+                         myFragment = PythonFragment()
+
+                    }
+                    9 -> {
+                         myFragment = LinuxFragment()
+
+                    }
+                    10 -> {
+                         myFragment = KubernetFragment()
+
+                    }
+                    11 -> {
+                         myFragment = ShellScriptFragment()
+
+                    }
+                    12 -> {
+                         myFragment = SaltFragment()
+
+                    }
+                    13 -> {
+                         myFragment = NagiosFragment()
+
+                    }
+                    14 -> {
+                         myFragment = ElkFragment()
+
+                    }
 
                 }
+                activity.supportFragmentManager.beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit()
+
 
             }
+
         }
     }
+}
 
