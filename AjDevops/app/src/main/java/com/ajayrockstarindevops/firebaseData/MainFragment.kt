@@ -111,32 +111,6 @@ class MainFragment : Fragment() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
-        activity?.menuInflater?.inflate(R.menu.menu_main, menu)
-
-        return  super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun onPrepareOptionsMenu(menu: Menu?) {
-        super.onPrepareOptionsMenu(menu)
-        val menuItem = menu?.findItem(R.id.addNote)
-    }
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item != null) {
-            if (item.itemId == R.id.addNote) {
-                var fragment: Fragment? = null
-                if (fragment != null) {
-                    (activity as AppCompatActivity).supportActionBar?.setTitle("ADD NOTES")
-                    fragment = NoteFragment()
-                    val ft = activity?.supportFragmentManager?.beginTransaction()
-                    ft?.replace(R.id.mainFrame, fragment)
-                    ft?.commit()
-                }
-            }
-        }
-
-        return super.onOptionsItemSelected(item)
-    }
 
     companion object {
         /*

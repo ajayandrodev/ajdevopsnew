@@ -11,9 +11,10 @@ import android.widget.Toast
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import com.ajayrockstarindevops.historyTools.GitHistoryFragment
-import com.ajayrockstarindevops.fragments.GitHubFragment
+
 import com.ajayrockstarindevops.fragments.*
 import android.support.v7.app.AppCompatActivity
+
 
 
 /**
@@ -47,14 +48,6 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
                 var position: Int = getAdapterPosition()
 
                 if (position == 0) {
-                    var fragment: Fragment? = null
-                    if (fragment != null) {
-                        (fragment as AppCompatActivity).supportActionBar?.setTitle("ADD NOTES")
-                        fragment = GitHubFragment()
-                        val ft = fragment?.activity?.supportFragmentManager?.beginTransaction()
-                        ft?.replace(R.id.mainFrame, fragment)
-                        ft?.commit()
-                    }
                     Snackbar.make(v, "Click detected on item pppppppppp $position",
                             Snackbar.LENGTH_LONG).setAction("Action", null).show()
                 } else if (position == 1) {

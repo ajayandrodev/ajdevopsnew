@@ -16,13 +16,18 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.ajayrockstarindevops.ajdevops.R
 
 import android.content.Intent
+import android.support.v4.app.Fragment
 import com.ajayrockstarindevops.ajdevops.NoteActivity
 import android.widget.Toast
+import com.ajayrockstarindevops.firebaseData.NoteFragment
 import com.ajayrockstarindevops.model.Note
+import android.support.v7.app.AppCompatActivity
 
-class NoteRecyclerViewAdapter(private val notesList: MutableList<Note>,private val context: Context,
-        private val firestoreDB: FirebaseFirestore): RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {
 
+class NoteRecyclerViewAdapter(private val notesList: MutableList<Note>, private val context: Context,
+                              private val firestoreDB: FirebaseFirestore) : RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {
+    var appCompatActivity: AppCompatActivity? = null
+    var fragment: Fragment? = null
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent!!.context).inflate(R.layout.item_note, parent, false)
 
@@ -62,13 +67,26 @@ class NoteRecyclerViewAdapter(private val notesList: MutableList<Note>,private v
     }
 
     private fun updateNote(note: Note) {
-        val intent = Intent(context, NoteActivity::class.java)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        intent.putExtra("UpdateNoteId", note.id)
-        intent.putExtra("UpdateNoteTitle", note.title)
-        intent.putExtra("UpdateNoteContent", note.content)
-        intent.putExtra("UpdateNoteName", note.name)
-        context.startActivity(intent)
+        /*  val intent = Intent(context, NoteActivity::class.java)
+          intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+          intent.putExtra("UpdateNoteId", note.id)
+          intent.putExtra("UpdateNoteTitle", note.title)
+          intent.putExtra("UpdateNoteContent", note.content)
+          intent.putExtra("UpdateNoteName", note.name)
+          context.startActivity(intent)*/
+        Toast.makeText(context, "Note has been updated!", Toast.LENGTH_SHORT).show()
+      /*  var fragment: Fragment? = null
+        appCompatActivity?.getSupportActionBar()?.setTitle("esw")
+        fragment = NoteFragment.newInstance()
+        //NOTE: Fragment changing code
+        if (fragment != null) {
+            val ft = appCompatActivity?.supportFragmentManager?.beginTransaction()
+            ft?.replace(R.id.mainFrame, fragment)
+            ft?.commit()
+
+        }*/
+
+
     }
 
     private fun deleteNote(id: String, position: Int) {

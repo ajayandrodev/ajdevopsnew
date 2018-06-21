@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tv_choose_file_title"
-        android:layout_margin="@dimen/_10sdp"
         android:background="#C0C0C0">
 
         <RelativeLayout
@@ -67,7 +66,6 @@
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:padding="@dimen/_10sdp"
                 android:text="Upload using:"
                 android:textColor="@android:color/black"
                 android:textSize="18sp" />
@@ -94,11 +92,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/btn_upload_file_new"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_25sdp"
                 android:layout_marginLeft="@dimen/_15sdp"
                 android:layout_marginRight="@dimen/_15sdp"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:gravity="center"
+                android:padding="@dimen/_10sdp"
                 android:text="File Name" />
         </RelativeLayout>
 

@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item != null) {
-            if (item.itemId == R.id.addNote) {
+            if (item.itemId == R.id.action_settings) {
                 val intent = Intent(this, NoteActivity::class.java)
                 startActivity(intent)
             }

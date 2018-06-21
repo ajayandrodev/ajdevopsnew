@@ -5,7 +5,9 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
@@ -20,6 +22,7 @@ import com.ajayrockstarindevops.ajdevops.R
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_storage.*
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -124,6 +127,24 @@ class StorageFragment : Fragment(), View.OnClickListener {
         val mime = MimeTypeMap.getSingleton()
 
         return mime.getExtensionFromMimeType(contentResolver?.getType(uri))
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (bitmap != null) {
+            bitmap!!.recycle()
+        }
+
+        if (requestCode == CHOOSING_IMAGE_REQUEST && resultCode == AppCompatActivity.RESULT_OK && data != null && data.data != null) {
+            fileUri = data.data
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(activity?.contentResolver, fileUri)
+                //  imgFile.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
     }
 
     private fun validateInputFileName(fileName: String): Boolean {

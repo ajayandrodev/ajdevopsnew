@@ -27,7 +27,9 @@ import com.ajayrockstarindevops.commandsTools.DockerCommnadsFragment
 import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
 import com.ajayrockstarindevops.commandsTools.JenkinsCommandsFragment
 import com.ajayrockstarindevops.firebaseData.MainFragment
+import com.ajayrockstarindevops.firebaseData.NoteFragment
 import com.ajayrockstarindevops.firebaseData.StorageFragment
+import com.ajayrockstarindevops.model.Note
 
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -37,8 +39,8 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
         getSupportActionBar()!!.setTitle("DEVOPS TOOLS")
-        val personName = intent.getStringExtra("name")
-        val personEmail = intent.getStringExtra("email")
+        /*   val personName = intent.getStringExtra("name")
+           val personEmail = intent.getStringExtra("email")*/
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.setCheckedItem(R.id.nav_dev_tool);
@@ -48,16 +50,10 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         val header = navigationView.getHeaderView(0)
         val name = header.findViewById(R.id.name) as TextView
         val email = header.findViewById(R.id.email) as TextView
-        name.setText(personName)
-        email.setText(personEmail)
-
-        fab.setOnClickListener { view ->
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-            /* Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-               .setAction("Action", null).show()*/
-        }
-
+        /*  name.setText(personName)
+          email.setText(personEmail)*/
+        name.setText("ajay")
+        email.setText("ajay@email")
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
@@ -87,9 +83,8 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 .setMessage("Do you want to exit?")
                 .setCancelable(false)
                 .setPositiveButton("Yes") { dialog, id ->
-                    /*finish()*/
-                    val intent = Intent(this, GoogleSigninActivity::class.java)
-                    startActivity(intent)
+                    finish()
+
                 }
                 .setNegativeButton("No") { dialog, id -> dialog.cancel() }
         val alertDialog = alertDialogBuilder.create()
@@ -98,7 +93,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.navigation_drawer, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
@@ -107,9 +102,39 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> return true
+            R.id.action_settings -> {
+                Toast.makeText(this@NavigationDrawerActivity, "Its working!", Toast.LENGTH_SHORT).show()
+                val note = Note()
+                var fragment: Fragment? = null
+                getSupportActionBar()!!.setTitle("ADD NOTE")
+                fragment = NoteFragment.newInstance()
+                //NOTE: Fragment changing code
+                if (fragment != null) {
+                    val ft = supportFragmentManager.beginTransaction()
+                    ft.replace(R.id.mainFrame, fragment)
+                    ft.commit()
+                }
+                return true
+            }
             else -> return super.onOptionsItemSelected(item)
         }
+        /*   if (item != null) {
+               if (item.itemId == R.id.action_settings) {
+                   var fragment: Fragment? = null
+                   if (fragment != null) {
+                       getSupportActionBar()!!.setTitle("ADD NOTES")
+                       fragment = NoteFragment()
+                       //NOTE: Fragment changing code
+                       if (fragment != null) {
+                           val ft = supportFragmentManager.beginTransaction()
+                           ft.replace(R.id.mainFrame, fragment)
+                           ft.commit()
+                       }
+                   }
+               }
+           }
+
+           return super.onOptionsItemSelected(item)*/
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
