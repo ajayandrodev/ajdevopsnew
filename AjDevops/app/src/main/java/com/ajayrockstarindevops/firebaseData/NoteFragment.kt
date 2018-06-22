@@ -97,7 +97,6 @@ class NoteFragment : Fragment() {
         }
 
         btCal.setOnClickListener {
-            Toast.makeText(context, "Please Enter Current ddddd!", Toast.LENGTH_SHORT).show()
             DatePickerDialog(context, datePickerListener, myCalendar
                     .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                     myCalendar.get(Calendar.DAY_OF_MONTH)).show()
