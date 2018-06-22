@@ -16,8 +16,14 @@ import android.widget.Toast
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.Note
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_note.*
 import android.support.v4.app.FragmentActivity
+import android.widget.ImageView
+import kotlinx.android.synthetic.main.fragment_note.*
+import android.app.DatePickerDialog
+import android.widget.DatePicker;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -39,10 +45,11 @@ class NoteFragment : Fragment() {
     private var param2: String? = null
     private var param3: String? = null
     private var param4: String? = null
-    private val TAG = "AddNoteActivity"
+    private val TAG = "AddNoteFragmemt"
     private var myContext: FragmentActivity? = null
     private var firestoreDB: FirebaseFirestore? = null
     internal var id: String = ""
+    private val myCalendar = Calendar.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,11 +60,13 @@ class NoteFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
             param3 = it.getString(ARG_PARAM3)
             param4 = it.getString(ARG_PARAM4)
+/*
             if (param1 != null && param2 != null && param3 != null && param4 != null) {
                 edtTitle.setText(param2)
                 edtContent.setText(param3)
                 edtName.setText(param4)
             }
+*/
 
         }
     }
@@ -75,43 +84,57 @@ class NoteFragment : Fragment() {
         //getting recyclerview from xml
         firestoreDB = FirebaseFirestore.getInstance()
         val btAdd = view.findViewById(R.id.btAdd) as Button
+        val btCal = view.findViewById(R.id.img_calender) as ImageView
+
+        val datePickerListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+            myCalendar.set(Calendar.YEAR, year)
+            myCalendar.set(Calendar.MONTH, monthOfYear)
+            myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
+            val myFormat = "MM-dd-yyyy"
+            val sdf = SimpleDateFormat(myFormat, Locale.US)
+            edDate.setText(sdf.format(myCalendar.time))
+        }
+
+        btCal.setOnClickListener {
+            Toast.makeText(context, "Please Enter Current ddddd!", Toast.LENGTH_SHORT).show()
+            DatePickerDialog(context, datePickerListener, myCalendar
+                    .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
+                    myCalendar.get(Calendar.DAY_OF_MONTH)).show()
+        }
         btAdd.setOnClickListener {
+            val date = edDate.text.toString()
             val title = edtTitle.text.toString()
             val content = edtContent.text.toString()
             val name = edtName.text.toString()
 
-            if (title.isNotEmpty()) {
-                if (id.isNotEmpty()) {
-                    updateNote(id, title, content, name)
-                } else {
-                    addNote(title, content, name)
-                }
+            if (date.isEmpty()) {
+                Toast.makeText(context, "Please Enter Current Date!", Toast.LENGTH_SHORT).show()
+
+            } else if (name.isEmpty()) {
+                Toast.makeText(context, "Please Enter The Name!", Toast.LENGTH_SHORT).show()
+
+            } else if (title.isEmpty()) {
+                Toast.makeText(context, "Please Enter The Title!", Toast.LENGTH_SHORT).show()
+
+            } else if (content.isEmpty()) {
+                Toast.makeText(context, "Please Enter The Content!", Toast.LENGTH_SHORT).show()
+
+            } else if (date.isNotEmpty() && title.isNotEmpty() && content.isNotEmpty() && name.isNotEmpty()) {
+                addNote(date, title, content, name)
+
             }
 
-            // activity?.finish()
+
         }
 
         return view;
     }
 
-    private fun updateNote(id: String, title: String, content: String, name: String) {
-        val note = Note(id, title, content, name).toMap()
 
-        firestoreDB!!.collection("notes")
-                .document(id)
-                .set(note)
-                .addOnSuccessListener {
-                    Log.e(TAG, "Note document update successful!")
-                    Toast.makeText(context, "Note has been updated!", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener { e ->
-                    Log.e(TAG, "Error adding Note document", e)
-                    Toast.makeText(context, "Note could not be updated!", Toast.LENGTH_SHORT).show()
-                }
-    }
-
-    private fun addNote(title: String, content: String, name: String) {
-        val note = Note(title, content, name).toMap()
+    private fun addNote(date: String, title: String, content: String, name: String) {
+        val note = Note(date, title, content, name).toMap()
+        println(date)
 
         firestoreDB!!.collection("notes")
                 .add(note)

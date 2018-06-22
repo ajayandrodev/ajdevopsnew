@@ -1,7 +1,6 @@
 package com.ajayrockstarindevops.firebaseData
 
 
-import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.*
 import android.content.Intent
@@ -11,7 +10,6 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.ajayrockstarindevops.model.Note
-import android.support.v7.app.AppCompatActivity;
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
@@ -21,6 +19,14 @@ import com.ajayrockstarindevops.firebaseData.NoteFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.MenuInflater;
+import android.os.Handler
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import android.view.View
+import android.view.animation.DecelerateInterpolator
+import android.widget.ProgressBar
+import android.widget.RelativeLayout
+import android.widget.TextView
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -36,12 +42,15 @@ class MainFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private val TAG = "MainActivity"
+    private val TAG = "MainFragment"
 
     private var mAdapter: NoteRecyclerViewAdapter? = null
 
     private var firestoreDB: FirebaseFirestore? = null
     private var firestoreListener: ListenerRegistration? = null
+    var pStatus = 0
+    val handler = Handler()
+    lateinit var tv: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,11 +65,46 @@ class MainFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
         //getting recyclerview from xml
         firestoreDB = FirebaseFirestore.getInstance()
+        val res = resources
+        val drawable = res.getDrawable(R.drawable.circular)
+        val mProgress = view.findViewById<ProgressBar>(R.id.circularProgressbar) as ProgressBar
+        tv = view.findViewById<TextView>(R.id.tv) as TextView
+        val rlProgress = view.findViewById<RelativeLayout>(R.id.rl_progress) as RelativeLayout
 
-        loadNotesList()
+        mProgress.progress = 0   // Main Progress
+        mProgress.secondaryProgress = 100 // Secondary Progress
+        mProgress.max = 100 // Maximum Progress
+        mProgress.progressDrawable = drawable
+
+
+        Thread(Runnable {
+            // TODO Auto-generated method stub
+            while (pStatus < 100) {
+                pStatus += 1
+
+                handler.post {
+                    // TODO Auto-generated method stub
+                    mProgress.progress = pStatus
+                    tv.text = pStatus.toString() + "%"
+                    rlProgress.visibility= View.INVISIBLE
+
+                    loadNotesList()
+                }
+                try {
+                    // Sleep for 200 milliseconds.
+                    // Just to display the progress slowly
+                    Thread.sleep(16) //thread will take approx 3 seconds to finish
+
+                } catch (e: InterruptedException) {
+                    e.printStackTrace()
+                }
+
+            }
+        }).start()
 
         firestoreListener = firestoreDB!!.collection("notes")
-                .addSnapshotListener(EventListener { documentSnapshots, e ->
+                .addSnapshotListener(EventListener
+                { documentSnapshots, e ->
                     if (e != null) {
                         Log.e(TAG, "Listen failed!", e)
                         return@EventListener
@@ -79,6 +123,7 @@ class MainFragment : Fragment() {
                 })
         return view;
     }
+
     override fun onDestroy() {
         super.onDestroy()
 
@@ -86,6 +131,7 @@ class MainFragment : Fragment() {
     }
 
     private fun loadNotesList() {
+
         firestoreDB!!.collection("notes")
                 .get()
                 .addOnCompleteListener { task ->
@@ -108,7 +154,6 @@ class MainFragment : Fragment() {
                     }
                 }
     }
-
 
 
     companion object {

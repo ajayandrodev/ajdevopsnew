@@ -5,6 +5,14 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'io.fabric'
 android {
+    signingConfigs {
+        release {
+            keyAlias 'key0'
+            keyPassword 'devops@123@$'
+            storeFile file('D:/ajdevopskey/keyDevops.jks')
+            storePassword 'devops@123@$'
+        }
+    }
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.ajayrockstarindevops.ajdevops"
@@ -18,7 +26,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
+    }
+    productFlavors {
     }
 }
 

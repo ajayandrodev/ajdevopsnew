@@ -39,8 +39,8 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
         getSupportActionBar()!!.setTitle("DEVOPS TOOLS")
-        /*   val personName = intent.getStringExtra("name")
-           val personEmail = intent.getStringExtra("email")*/
+        val personName = intent.getStringExtra("name")
+        val personEmail = intent.getStringExtra("email")
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.setCheckedItem(R.id.nav_dev_tool);
@@ -50,10 +50,9 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         val header = navigationView.getHeaderView(0)
         val name = header.findViewById(R.id.name) as TextView
         val email = header.findViewById(R.id.email) as TextView
-        /*  name.setText(personName)
-          email.setText(personEmail)*/
-        name.setText("ajay")
-        email.setText("ajay@email")
+        name.setText(personName)
+        email.setText(personEmail)
+
         val toggle = ActionBarDrawerToggle(
                 this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
@@ -62,12 +61,6 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
     }
 
     override fun onBackPressed() {
-        /*  if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-          } else {
-            super.onBackPressed()
-            Toast.makeText(this@NavigationDrawerActivity, "Its backpressed!", Toast.LENGTH_SHORT).show()
-          }*/
         val f = supportFragmentManager.findFragmentById(R.id.mainFrame)
         if (f is DevopsToolsFragment) {
             alertDialog()
@@ -84,7 +77,6 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 .setCancelable(false)
                 .setPositiveButton("Yes") { dialog, id ->
                     finish()
-
                 }
                 .setNegativeButton("No") { dialog, id -> dialog.cancel() }
         val alertDialog = alertDialogBuilder.create()
@@ -103,8 +95,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
             R.id.action_settings -> {
-                Toast.makeText(this@NavigationDrawerActivity, "Its working!", Toast.LENGTH_SHORT).show()
-                val note = Note()
+                // Toast.makeText(this@NavigationDrawerActivity, "Its working!", Toast.LENGTH_SHORT).show()
                 var fragment: Fragment? = null
                 getSupportActionBar()!!.setTitle("ADD NOTE")
                 fragment = NoteFragment.newInstance()
@@ -153,10 +144,10 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText)
                 startActivity(Intent.createChooser(sharingIntent, "Shearing Option"))
             }
-            R.id.nav_send -> {
-                //  Toast.makeText(this@NavigationDrawerActivity, "Its send!", Toast.LENGTH_SHORT).show()
+        /*   R.id.nav_send -> {
+               //  Toast.makeText(this@NavigationDrawerActivity, "Its send!", Toast.LENGTH_SHORT).show()
 
-            }
+           }*/
         }
         //NOTE: Fragment changing code
         if (fragment != null) {

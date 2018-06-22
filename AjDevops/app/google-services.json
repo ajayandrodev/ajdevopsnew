@@ -15,16 +15,12 @@
       },
       "oauth_client": [
         {
-          "client_id": "885498913691-g4b7uam71f4sb32rgnjekv9fqvlgq7b4.apps.googleusercontent.com",
+          "client_id": "885498913691-ecetm1vpksn1vastvh1v30s58ikmnbit.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.ajayrockstarindevops.ajdevops",
-            "certificate_hash": "988cf86b7e830b6a0e110ccf114067f8d3b343e3"
+            "certificate_hash": "5ff55599f115a2a721439e09c89be5795a3d2559"
           }
-        },
-        {
-          "client_id": "885498913691-ji39kjot48v9er73end7b0p98uu1h6s3.apps.googleusercontent.com",
-          "client_type": 3
         },
         {
           "client_id": "885498913691-ji39kjot48v9er73end7b0p98uu1h6s3.apps.googleusercontent.com",
