@@ -23,6 +23,7 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.fragment_storage.*
 import java.io.IOException
+import com.ajayrockstarindevops.firebaseData.UploadedFilesFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -63,12 +64,14 @@ class StorageFragment : Fragment(), View.OnClickListener {
         val tvFileName = view.findViewById(R.id.tvFileName) as TextView
         val btnchoosefile = view.findViewById(R.id.btn_choose_file_new) as Button
         val btnuploadfile = view.findViewById(R.id.btn_upload_file_new) as Button
+     //   val btnviewuploads = view.findViewById(R.id.btn_choose_view_upload) as Button
         tvFileName.text = ""
 
         imageReference = FirebaseStorage.getInstance().reference.child("images")
 
         btnchoosefile.setOnClickListener(this)
         btnuploadfile.setOnClickListener(this)
+       // btnviewuploads.setOnClickListener(this)
         return view
     }
 
@@ -78,8 +81,22 @@ class StorageFragment : Fragment(), View.OnClickListener {
         when (i) {
             R.id.btn_choose_file_new -> showChoosingFile()
             R.id.btn_upload_file_new -> uploadFile()
+         //   R.id.btn_choose_view_upload -> viewUploads()
         }
     }
+
+/*
+    private fun viewUploads() {
+        Toast.makeText(context, "view files ", Toast.LENGTH_LONG).show()
+        var fragment: Fragment? = null
+        fragment = UploadedFilesFragment()
+        //NOTE: Fragment changing code
+        if (fragment != null) {
+            activity?.supportFragmentManager.beginTransaction().replace(R.id.mainFrame, fragment).addToBackStack(null).commit()
+
+        }
+    }
+*/
 
     private fun uploadFile() {
         if (fileUri != null) {
@@ -95,7 +112,7 @@ class StorageFragment : Fragment(), View.OnClickListener {
                         Log.e(TAG, "Uri: " + taskSnapshot.downloadUrl)
                         Log.e(TAG, "Name: " + taskSnapshot.metadata!!.name)
                         tvFileName.text = taskSnapshot.metadata!!.path + " - " + taskSnapshot.metadata!!.sizeBytes / 1024 + " KBs"
-                        Toast.makeText(context, "File Uploaded ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(context, "File Uploaded To Server ", Toast.LENGTH_LONG).show()
                     }
                     .addOnFailureListener { exception ->
                         Toast.makeText(context, exception.message, Toast.LENGTH_LONG).show()
@@ -117,7 +134,7 @@ class StorageFragment : Fragment(), View.OnClickListener {
 
     private fun showChoosingFile() {
         val intent = Intent()
-        intent.type = "image/*"
+        intent.type = "image/*|application/pdf|audio/*"
         intent.action = Intent.ACTION_GET_CONTENT
         startActivityForResult(Intent.createChooser(intent, "Select Image"), CHOOSING_IMAGE_REQUEST)
     }

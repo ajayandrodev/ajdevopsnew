@@ -33,8 +33,6 @@ import com.ajayrockstarindevops.model.Note
 import com.google.firebase.auth.FirebaseAuth
 
 
-
-
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +77,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 .setMessage("Do you want to exit?")
                 .setCancelable(false)
                 .setPositiveButton("Yes") { dialog, id ->
-                   // finish()
+                    // finish()
                     FirebaseAuth.getInstance().signOut()
                     startActivity(Intent(this@NavigationDrawerActivity, GoogleSigninActivity::class.java))
                     finish()
@@ -108,7 +106,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 //NOTE: Fragment changing code
                 if (fragment != null) {
                     val ft = supportFragmentManager.beginTransaction()
-                    ft.replace(R.id.mainFrame, fragment)
+                    ft.replace(R.id.mainFrame, fragment).addToBackStack(null)
                     ft.commit()
                 }
                 return true
@@ -145,8 +143,8 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
                 sharingIntent.type = "text/plain"
-                val shareBodyText = "Check it out. Your message goes here"
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject here")
+                val shareBodyText = "Install this cool application: " + " " + "https://play.google.com/store/apps/details?id=com.ajayrockstarindevops.ajdevops"
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Download App")
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText)
                 startActivity(Intent.createChooser(sharingIntent, "Shearing Option"))
             }
