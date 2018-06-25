@@ -60,7 +60,7 @@ class DevopsToolsFragment : Fragment() {
         users.add(DevopsToolModel("JENKINS"))
         users.add(DevopsToolModel("DOCKER"))
         users.add(DevopsToolModel("ANSIBLE"))
-        users.add(DevopsToolModel("NGINX "))
+      /*  users.add(DevopsToolModel("NGINX "))
         users.add(DevopsToolModel("CHEF"))
         users.add(DevopsToolModel("AWS"))
         users.add(DevopsToolModel("PUPPET"))
@@ -70,7 +70,7 @@ class DevopsToolsFragment : Fragment() {
         users.add(DevopsToolModel("SHELLSCRIPT"))
         users.add(DevopsToolModel("SALTSTACK"))
         users.add(DevopsToolModel("NAGIOS"))
-        users.add(DevopsToolModel("ELK"))
+        users.add(DevopsToolModel("ELK"))*/
         //creating our adapter
         val adapter = DevopsToolAdapter(users)
         //now adding the adapter to recyclerview

@@ -30,6 +30,9 @@ import com.ajayrockstarindevops.firebaseData.MainFragment
 import com.ajayrockstarindevops.firebaseData.NoteFragment
 import com.ajayrockstarindevops.firebaseData.StorageFragment
 import com.ajayrockstarindevops.model.Note
+import com.google.firebase.auth.FirebaseAuth
+
+
 
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -76,6 +79,9 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 .setMessage("Do you want to exit?")
                 .setCancelable(false)
                 .setPositiveButton("Yes") { dialog, id ->
+                   // finish()
+                    FirebaseAuth.getInstance().signOut()
+                    startActivity(Intent(this@NavigationDrawerActivity, GoogleSigninActivity::class.java))
                     finish()
                 }
                 .setNegativeButton("No") { dialog, id -> dialog.cancel() }

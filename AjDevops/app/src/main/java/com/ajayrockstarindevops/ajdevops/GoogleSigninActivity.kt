@@ -107,6 +107,8 @@ class GoogleSigninActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
         startActivityForResult(intent, REQUEST_CODE_SIGN_IN)
     }
 
+
+
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             val intent = Intent(this, NavigationDrawerActivity::class.java)
