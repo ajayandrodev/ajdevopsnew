@@ -22,8 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".NoteActivity" />
 
         <service android:name="com.ajayrockstarindevops.firebaseData.FirebaseMessageService">
             <intent-filter>
@@ -53,10 +51,6 @@
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".StorageActivity" />
-        <activity android:name=".DisplayImagesActivity" />
-        <activity android:name=".DisplayUploadedImages" />
-        <activity android:name=".DataFilesStorageActivity"></activity>
     </application>
 
 </manifest>
