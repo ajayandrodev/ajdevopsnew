@@ -7,8 +7,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-
-
+           <!--feedback-->
+    <string name="mail_feedback_email">feedback@example.com</string>
+    <string name="mail_feedback_subject">Feedback on your app</string>
+    <string name="mail_feedback_message">Hi, \n\nYour Feedback sample app rocks! I would like to give you some feedback:</string>
+    <string name="title_send_feedback">Send feedback</string>
     <string name="sendPhoto">Photo Camera</string>
     <string name="sign_out">Sign Out</string>
     <string name="select_picture_title">Get Photo From</string>

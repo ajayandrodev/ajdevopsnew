@@ -31,7 +31,7 @@ import com.ajayrockstarindevops.firebaseData.NoteFragment
 import com.ajayrockstarindevops.firebaseData.StorageFragment
 import com.ajayrockstarindevops.model.Note
 import com.google.firebase.auth.FirebaseAuth
-
+import android.net.Uri;
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -130,15 +130,13 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
             R.id.nav_added_notes -> {
                 getSupportActionBar()!!.setTitle("ADD NOTES")
                 fragment = MainFragment()
-                /*  val intent = Intent(this, MainActivity::class.java)
-                  startActivity(intent)*/
+
             }
             R.id.nav_upload_file -> {
 
                 getSupportActionBar()!!.setTitle("UPLOAD FILES")
                 fragment = StorageFragment()
-                /*  val intent = Intent(this, StorageActivity::class.java)
-                  startActivity(intent)*/
+
             }
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
@@ -148,10 +146,20 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText)
                 startActivity(Intent.createChooser(sharingIntent, "Shearing Option"))
             }
-        /*   R.id.nav_send -> {
-               //  Toast.makeText(this@NavigationDrawerActivity, "Its send!", Toast.LENGTH_SHORT).show()
+            R.id.nav_send -> {
+                val i = Intent(Intent.ACTION_SENDTO)
+                i.type = "message/rfc822"
+                i.data = Uri.parse("mailto:")
+                i.putExtra(Intent.EXTRA_EMAIL, arrayOf("ajaygoudandrodevops86@gmail.com"))
+                i.putExtra(Intent.EXTRA_SUBJECT, "Enter the subject here")
+                i.putExtra(Intent.EXTRA_TEXT, "Enter the message here")
+                try {
+                    startActivity(Intent.createChooser(i, "Send mail..."))
+                } catch (ex: android.content.ActivityNotFoundException) {
+                    Toast.makeText(this, "There are no email clients installed.", Toast.LENGTH_SHORT).show()
+                }
 
-           }*/
+            }
         }
         //NOTE: Fragment changing code
         if (fragment != null) {
