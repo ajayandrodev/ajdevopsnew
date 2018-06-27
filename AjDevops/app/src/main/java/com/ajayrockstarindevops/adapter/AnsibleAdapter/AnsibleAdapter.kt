@@ -8,15 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.ajayrockstarindevops.additionalInfoTools.AnsibleAdditionalInfoFragment
-import com.ajayrockstarindevops.additionalInfoTools.GitHubAdditionalInfoFragment
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.commandsTools.AnsibleCommandsFragment
-import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
-import com.ajayrockstarindevops.fragments.AnsibleFragment
 import com.ajayrockstarindevops.historyTools.AnsibleHistoryFragment
-import com.ajayrockstarindevops.historyTools.GitHistoryFragment
 import com.ajayrockstarindevops.interviewQuestionsTools.AnsibleInterviewQuestionsFragment
-import com.ajayrockstarindevops.interviewQuestionsTools.GitInterviewQuestionsFragment
 import com.ajayrockstarindevops.model.AnsibleModel.AnsibleModel
 
 

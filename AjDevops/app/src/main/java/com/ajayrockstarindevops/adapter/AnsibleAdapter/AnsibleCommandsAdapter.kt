@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.AnsibleModel.AnsibleCommandsModel
-import com.ajayrockstarindevops.model.AnsibleModel.AnsibleModel
 
 
 /**

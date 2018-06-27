@@ -9,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.AnsibleAdapter.AnsibleAdapter
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.AnsibleModel.AnsibleModel
+import com.ajayrockstarindevops.adapter.AnsibleAdapter.AnsibleAdapter
 
 
 // TODO: Rename parameter arguments, choose names that match

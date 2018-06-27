@@ -60,6 +60,7 @@ class DevopsToolsFragment : Fragment() {
         users.add(DevopsToolModel("JENKINS"))
         users.add(DevopsToolModel("DOCKER"))
         users.add(DevopsToolModel("ANSIBLE"))
+        users.add(DevopsToolModel("MAVEN"))
       /*  users.add(DevopsToolModel("NGINX "))
         users.add(DevopsToolModel("CHEF"))
         users.add(DevopsToolModel("AWS"))

@@ -11,12 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.AnsibleAdapter.AnsibleCommandsAdapter
-import com.ajayrockstarindevops.adapter.DockerAdapter.DockerCommandsAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.AnsibleModel.AnsibleCommandsModel
-import com.ajayrockstarindevops.model.DockerModel.DockerCommandsModel
+import com.ajayrockstarindevops.adapter.AnsibleAdapter.AnsibleCommandsAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

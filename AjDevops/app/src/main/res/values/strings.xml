@@ -7,7 +7,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-           <!--feedback-->
+    <!--feedback-->
     <string name="mail_feedback_email">feedback@example.com</string>
     <string name="mail_feedback_subject">Feedback on your app</string>
     <string name="mail_feedback_message">Hi, \n\nYour Feedback sample app rocks! I would like to give you some feedback:</string>
@@ -234,5 +234,108 @@ There are many parameters we need to consider while running an Ansible playbook.
 
 
  </string>
+
+    <!--maven details-->
+<string name="maven_history">
+Apache Maven is project management tool which is following the concept of a project object model (POM). Mavan can manage project’s build and documentation from a central place.\n <font color='#800080'><b>Maven 1  </b></font>\n
+actually was started as a sub project of Apache Turbine in 2002 (by Sonatype’s Jason van Zyl).
+    It was released in July 2004 as v1.0.\n <font color='#800080'><b>Maven 2  </b></font>\nwas released in Oct 2005.
+    It was a complete rewrite of the previous project. It was not backward compatible.\n<font color='#800080'><b>Maven 3
+</b></font>\nwas released in October 2010. It is same as Maven 2 but more stable.
+    This article explores the very basic concepts needed for the beginners who want to
+    learn and get started with the Maven. Before the popularity of using Maven, most of the projects
+    used Ant Script for the projects build which is used only for the build purpose.\n\n
+<b>Maven is a build and dependencies management system used primarily for Java projects.</b>\n\n
+<font color='#800080'><b>Key features include: </b></font>\n\n
+1===>Create new projects through archetypes.\n
+2===>Project configuration in POM file and Settings file\n
+3===>Project building using lifecycles, phases, plugins, goals and build profiles.\n
+4===>Dependency management through repositories\n
+5===>Deployment with the release plugin.\n\n
+ <font color='#800080'><b>1.The Project Object Model </b></font>\n\n
+The Project Object Model or POM is the fundamental unit of work in Maven. \nIt is an XML file, usually defined in
+the project root directory, that contains information about the project and the configuration used by
+Maven to build the project.\n\n
+<font color='#800080'><b>The configuration that can be included in the POM file is as follows: </b></font>\n\n
+1===>Plugins and goals\n
+2===>Dependencies\n
+3===>Repositories\n
+4===>Build profiles\n
+5===>Project metadata such as version, description, developers, etc.\n
+To facilitate a default configuration for all project, Maven provides what is known as the Super POM.\n
+The Super POM is Maven default POM. All POMs extend the Super Pom thus inheriting the configuration specified in the Super POM.\n\n
+<font color='#800080'><b>The Settings File </b></font>\n\n
+As mentioned above, the POM file contains the project configuration, whilst the Settings file contains
+the user specific configuration.\n There can be two settings files, the Global settings file, situated in the Maven
+install directory, and the user settings file that is situated in the user home directory.\n\n
+<font color='#800080'><b>The settings file can provide the following configuration: </b></font>\n\n
+1===>Simple values\n
+2===>Plugin groups\n
+3===>Server credentials\n
+4===>Proxies\n
+5===>Profiles\n\n
+<font color='#800080'><b>Build Lifecycles </b></font>\n\n
+Maven build process is based on lifecycles. The lifecycle provides a clearly defined process for
+building and distributing project artifacts.\n\n
+<b>There are three different lifecycles in Maven.</b>\n\n
+<font color='#800080'><b>Default: </b></font> Handles project building and deployment.\n
+<font color='#800080'><b>Clean:  </b></font>Handles project cleaning.\n
+<font color='#800080'><b>Site: </b></font> Handles project site docs.\n\n
+<font color='#800080'><b>Phases </b></font>\n\n
+Each lifecycle is defined by a series of stages named build phases.\nA build phase is responsible for a specific step in the lifecycle, but the way it carries out its duty depend on the plugin goals bound to the phase.\n\n
+<font color='#800080'><b>Plugins </b></font>\n\n
+Plugins are artifacts that provide goals for the build phases.\n Dividing the phases into goals, provided by plugins, make the build process really flexible and customizable.\n
+A plugin can provide one or more goals. Each goal represents a capability of that plugin.\n
+For example,\n Maven only supports a single source and test directories for a project.\nIf we decided to add additional directories to the project,we could use a plugin that provides goals to add source and test directories to the build process.\n\n
+<font color='#800080'><b>Goals </b></font>\n\n
+Goals are responsible for executing specific tasks during each phase.\nSome phases have default goals. For the default lifecycle, default goals are provided by the packaging option, defined in the project POM file.\nIn addition to the default goals, extra goals can be defined by configuring plugins in the project POM file.\n Therefore, a particular build phase can be composed of multiple goals.\n If a phase does not have any goals,it will not be executed as part of the lifecycle.\n\n
+<font color='#800080'><b>Standalone Plugins</b></font>\n\n
+Most of the plugins provide goals that are bound to build phases. However, there are some plugins that provide goals which are meant to be executed separately, not as part of the build lifecycle.\n\n
+<font color='#800080'><b>The Archetype Plugin</b></font>\n\n
+If you happen to be an IntelliJ user, you may have seen that when creating a new Maven project the first option is a list of archetypes. Have you ever wonder what is it for? I have to say that I did not until I found what archetypes are by digging into Maven features.\n
+An archetype is simply an existing project template.\nThe Archetype plugin provides Maven project templates. It creates the project structure and POM file based on standard templates. The process of creating a new project is done in an interactive way by just providing project specific configuration such as groupid, artifact name, etc.\n
+It helps to apply project or organisations best practices. New users can have, in seconds, a working project to use as a walking skeleton.\n
+The plugin has additive support, meaning that can be used to add pieces to existing projects, i.e.\nMaven site archetype can quickly create a documentation site for the project.\n
+Users can create their own archertypes in their organisations repository and use them as a base for new projects.\n
+Being a standalone plugin, the archetype plugin provides goals that are not bound to any lifecycle.
+    \nThe goals are executed directly, as opposed to what is done when using the lifecycle,
+    where goals are executed as part of the lifecycle phases.\n\n
+<font color='#800080'><b>Release Plugin</b></font>\n\n
+Provide a standard mechanism to release project artifacts.\n\n
+<font color='#800080'><b>The Release plugin has two main goals.</b></font>\n\n
+<font color='#800080'><b>Prepare</b></font>\n\n
+1.Verify there are not uncommitted changes.\n
+2.Prompt user to provide a tag, release, and development version names.\n
+3.Modify and commit release info in the POM file.\n
+4.Tag entire project.\n\n
+<font color='#800080'><b>Perform</b></font>\n\n
+1.Extract file revisions under new tag name\n
+2.Execute the Maven lifecycle on the extracted project instance\n
+3.Deploy the artifacts to local and remote repositories\n\n
+<font color='#800080'><b>Repositories</b></font>\n\n
+<b>Maven uses repositories to hold build artifacts and dependencies.</b>\n\n
+Maven Repositories are used as in Git, but storing build and dependencies artifacts instead of source code. Doing so, users can easily consume your project artifacts from the repositories.\n\n
+There are two types of repositories local and remote, both are structured the same way.\n\n
+1.The local repositories live in the users local machines and are used as a cache of the remote repositories, providing offline building capabilities.\n2.The remote repository can be divided into two subgroups, public and internal. Public repositories hold artifacts that are publicly available, whilst internal repositories are created in organisations to share internal artifacts between development teams.\n
+It is strongly recommended that when using maven, dependencies JARs are not stored in source control, but in the repositories. Doing so, Maven is able to handle transitive dependencies, as all dependencies information is available through the POM file and the Maven repositories.\n\n
+<font color='#800080'><b>Build Profiles</b></font>\n\n
+Maven Build Profiles are used to facilitate portable builds.\nThe build profiles modify the POM file at build time to provide equivalent-but-difference parameters that are environment dependent.\nFor example, it is the perfect place to define filesystem references that are different for each user.\n
+Profiles provide properties that can be referenced in the POM file. The properties are defined in the [properties] section in the profile declaration.\n
+Build profiles can be declared in the POM file, as a per project definition, or in the Settings files. Build profiles defined in the Global Settings file are available for all users of the machine, whilst the ones defined in the User Settings file are available only for a particular user.\n\n
+<font color='#800080'><b>Profiles are triggered in different ways:</b></font>\n\n
+<font color='#800080'><b>1.Explicitly:</b></font> Running a Maven build through the command line, including -P option.\n
+<font color='#800080'><b>2.Maven settings:</b></font> Including the profile in the [active profiles] section. When using this option the profile is always active.\n
+<font color='#800080'><b>3.[activation]</b></font> section in profile declaration:
+    The activation section can activate a certain profile based on environment variables,
+    OS settings, and missing or present files.\n\n
+<font color='#800080'><b>Conclusion</b></font>\n\n
+<b>There are many areas where Maven can ease development effort:</b>\n\n
+1.Easy build process\n
+2.Uniform build system\n
+3.Rich project information\n
+4.Guidelines for best development\n
+5.Transparent migration to new features\n
+</string>
+
 
 </resources>

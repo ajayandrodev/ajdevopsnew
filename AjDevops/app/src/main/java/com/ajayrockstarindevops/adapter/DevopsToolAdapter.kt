@@ -67,6 +67,10 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
 
                     }
                     4 -> {
+                        myFragment = MavenFragment()
+
+                    }
+                   /* 4 -> {
                          myFragment = NginxFragment()
 
                     }
@@ -110,7 +114,7 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
                          myFragment = ElkFragment()
 
                     }
-
+*/
                 }
                 activity.supportFragmentManager.beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit()
 

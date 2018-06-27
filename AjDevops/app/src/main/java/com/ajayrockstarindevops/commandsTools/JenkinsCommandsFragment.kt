@@ -34,6 +34,7 @@ class JenkinsCommandsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+  //  https://www.stratoscale.com/blog/devops/practical-devops-use-case-github-jenkins-docker/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
