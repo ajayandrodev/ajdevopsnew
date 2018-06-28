@@ -20,3 +20,5 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -dontwarn okio.**
+-keep class com.google.firebase.example.fireeats.model.** { *; }
+-keep class android.support.v7.widget.RecyclerView { *; }
