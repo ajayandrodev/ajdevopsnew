@@ -16,9 +16,7 @@
         android:roundIcon="@drawable/devops"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NavigationDrawerActivity"
-            android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".GoogleSigninActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -49,10 +47,10 @@
             android:resource="@color/colorAccent" />
 
 
-        <!--<activity
+        <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />-->
+            android:theme="@style/AppTheme.NoActionBar" />
 
     </application>
 
