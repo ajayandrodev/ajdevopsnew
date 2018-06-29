@@ -3,11 +3,18 @@ package com.ajayrockstarindevops.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import com.ajayrockstarindevops.adapter.LinuxAdapter.LinuxAdapter
+import com.ajayrockstarindevops.adapter.MavenAdapter.MavenAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
+import com.ajayrockstarindevops.model.LinuxModel.LinuxModel
+import com.ajayrockstarindevops.model.MavenModel.MavenModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,8 +42,26 @@ class LinuxFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_linux, container, false)
+        val view = inflater.inflate(R.layout.fragment_linux, container, false)
+        //getting recyclerview from xml
+        val recyclerView = view.findViewById(R.id.recyclerView_maven) as RecyclerView
+        //adding a layoutmanager
+        recyclerView.setHasFixedSize(false)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        //crating an arraylist to store users using the data class user
+        val users = ArrayList<LinuxModel>()
+        //adding some dummy data to the list
+        users.add(LinuxModel("LINUX HISTORY"))
+        users.add(LinuxModel("LINUX COMMANDS"))
+        users.add(LinuxModel("LINUX INTERVIEW QUESTIONS"))
+        users.add(LinuxModel("LINUX ADDITIONAL INFORMATION"))
+        //creating our adapter
+        val adapter = LinuxAdapter(users)
+        //now adding the adapter to recyclerview
+        recyclerView.adapter = adapter
+        return view;
     }
 
 

@@ -70,6 +70,9 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
                         myFragment = MavenFragment()
 
                     }
+                    5 -> {
+                        myFragment = LinuxFragment()
+                    }
                    /* 4 -> {
                          myFragment = NginxFragment()
 
@@ -88,10 +91,6 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
                     }
                     8 -> {
                          myFragment = PythonFragment()
-
-                    }
-                    9 -> {
-                         myFragment = LinuxFragment()
 
                     }
                     10 -> {

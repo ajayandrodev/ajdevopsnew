@@ -236,7 +236,7 @@ There are many parameters we need to consider while running an Ansible playbook.
  </string>
 
     <!--maven details-->
-<string name="maven_history">
+    <string name="maven_history">
 Apache Maven is project management tool which is following the concept of a project object model (POM). Mavan can manage project’s build and documentation from a central place.\n <font color='#800080'><b>Maven 1  </b></font>\n
 actually was started as a sub project of Apache Turbine in 2002 (by Sonatype’s Jason van Zyl).
     It was released in July 2004 as v1.0.\n <font color='#800080'><b>Maven 2  </b></font>\nwas released in Oct 2005.
@@ -337,5 +337,49 @@ Build profiles can be declared in the POM file, as a per project definition, or 
 5.Transparent migration to new features\n
 </string>
 
+    <!--linux details-->
+    <string name="linux_history">Linux is, in simplest terms, an Operating System. It is the software on a computer that enables applications and the computer operator to access the devices on the computer to perform desired functions. The Operating System (OS) relays instructions from an application to, for instance, the computer processor. The processor performs the instructed task, then sends the results back to the application via the Operating System.\n\nExplained in these terms, Linux is very similar to other Operating Systems, such as Windows and OS X.\n\n
+ <font color='#800080'><b>What is Linux?</b></font>\n\n
+ Linux is an example of Open Source software development and Free Operating System (OS).\n
+  <font color='#800080'><b>Architectures </b></font>\n\n
+Linux Originally developed for Intel is x86 hardware, ports available for over two dozen CPU types including ARM.\n
+ <font color='#800080'><b>File system Support </b></font>\n\n
+Linux use Ext2, Ext3, Ext4, Jfs, ReiserFS, Xfs, Btrfs format.\n
+ <font color='#800080'><b>Usage </b></font>\n\n
+Linux can be installed on a wide variety of computer hardware, ranging from mobile phones, tablet computers and video game consoles, to mainframes and supercomputers.\n
+ <font color='#800080'><b>GUI </b></font>\n\n
+Linux typically provides two GUIs, KDE and Gnome. But Linux GUI is optional.\n
+ <font color='#800080'><b> Market Share for Desktop PC</b></font>\n\n
+The market share of Linux is about 1.29%.\n
+ <font color='#800080'><b>Threat Detection and Solution </b></font>\n\n
+In case of Linux, threat detection and solution is very fast, as Linux is mainly community driven and whenever any Linux user post s any kind of threat, several developers start working on it from different parts of the world.\n
+ <font color='#800080'><b>Cost </b></font>\n\n
+Linux can be freely distributed, downloaded freely, distributed through magazines, Books etc. There are priced versions for Linux also, but they are normally cheaper than Windows.\n
+ <font color='#800080'><b>Security </b></font>\n\n
+Linux has had about 60-100 viruses listed till date.\n
+ <font color='#800080'><b>Text Mode Interface </b></font>\n\n
+BASH (Bourne Again Shell) is the Linux default shell. It can support multiple command interpreters.\n
+ <font color='#800080'><b>Development and Distribution </b></font>\n\n
+Linux is developed by Open Source development i.e. through sharing and collaboration of code and features through forums etc. and it is distributed by various vendors such as Debian, Red Hat, SUSE, Ubuntu, and GentuX etc.\n
+ <font color='#800080'><b>User </b></font>\n\n
+Linux Operating System for everyone, from home users to developers and computer enthusiasts alike.\n
+ <font color='#800080'><b>Kernel </b></font>\n\n
+Linux kernel is freely available. Linux kernel is developed by the community. Linus Torvalds oversees things.\n
+ <font color='#800080'><b>Patches </b></font>\n\n
+Linux patches are not highly tested as UNIX patches.\n
+ <font color='#800080'><b> Linux Distribution Names</b></font>\n\n
+<b>A few popular names:</b>\n
+Redhat Enterprise Linux, Fedora Linux, Debian Linux, Suse Enterprise Linux, Ubuntu Linux\n
+ <font color='#800080'><b> Linux Advantages</b></font>\n\n
 
+One of the most valued advantages of Linux over the other platforms lies with the high security levels it ensures. Every Linux user is happy to work in a virus-free environment and use the regular virus-prevention time needed when working with other Operating Systems for other more important tasks.\n
+Thanks to its open-source distribution, >Linux is being constantly developed and updated by the constantly expanding community of programmers supporting it. Despite its dynamic nature, it is totally complete in terms of functionality and interface. All those ongoing development efforts are made with the sole purpose of keeping the platform flexible and ever adaptable to the changeable climate of the WWW.\n
+<font color='#800080'><b>Linux in World Wide We </b></font>\n\n
+Due to its innate stability, the Linux-based distributions are a top choice for Internet servers, with a great part of the World Wide Web being powered by Linux. Linux is often used with Apache, thus creating the stable Linux-Apache combination.\n
+As a fundamental part of the web, Linux has deservedly found its place in the popular LAMP open source web platform, which represents a combination between the most popular website building technologies: Linux, Apache (web server), MySQL (database) and PHP/Perl/Python (web application languages).\n
+ <font color='#800080'><b>Disadvantages of Linux </b></font>\n\n
+ <font color='#800080'><b>Understanding </b></font>\n
+Becoming familiar with the Linux Operating System requires patience as well as a strong learning curve. You must have the desire to read and figure things out on your own, rather than having everything done for you.\n
+ <font color='#800080'><b>Compatibility </b></font>\n
+Because of its free nature, Linux is sometimes behind the curve when it comes to brand new hardware compatibility. Though the kernel contributors and maintainers work hard at keeping the kernel up to date, Linux does not have as much of a corporate backing as alternative Operating Systems. Sometimes you can find third party applications, sometimes you can not.</string>
 </resources>
