@@ -1,4 +1,4 @@
-package com.ajayrockstarindevops.adapter.AnsibleAdapter
+package com.ajayrockstarindevops.adapter.MavenAdapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.AnsibleModel.MavenCommandsModel
+import com.ajayrockstarindevops.model.MavenModel.MavenCommandsModel
 
 
 /**
@@ -16,7 +16,7 @@ class MavenCommandsAdapter(val userList: ArrayList<MavenCommandsModel>) : Recycl
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.ansible_command_list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.maven_command_list_layout, parent, false)
         return ViewHolder(v)
     }
 
@@ -34,12 +34,12 @@ class MavenCommandsAdapter(val userList: ArrayList<MavenCommandsModel>) : Recycl
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(user: MavenCommandsModel) {
-            val textViewAnsibleTitle = itemView.findViewById(R.id.ansible_title) as TextView
-            textViewAnsibleTitle.text = user.title
-            val textViewAnsibleDis = itemView.findViewById(R.id.ansible_discription) as TextView
-            textViewAnsibleDis.text = user.discription
-            val textViewAnsibleExa = itemView.findViewById(R.id.ansible_example) as TextView
-            textViewAnsibleExa.text = user.example
+            val textViewMavenTitle = itemView.findViewById(R.id.maven_title) as TextView
+            textViewMavenTitle.text = user.title
+            val textViewMavenDis = itemView.findViewById(R.id.maven_discription) as TextView
+            textViewMavenDis.text = user.discription
+            val textViewMavenExa = itemView.findViewById(R.id.maven_example) as TextView
+            textViewMavenExa.text = user.example
         }
     }
 }

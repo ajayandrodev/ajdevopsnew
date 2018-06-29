@@ -61,13 +61,14 @@ class FirebaseMessageService : FirebaseMessagingService() {
         val channelId: String = getString(R.string.app_name);
         val notificationBuilder: NotificationCompat.Builder =
                 NotificationCompat.Builder(this, channelId)
-                        .setAutoCancel(true)
                         .setSmallIcon(R.drawable.devops)
                         .setContentTitle(getString(R.string.app_name))
                         .setStyle(NotificationCompat.BigTextStyle().bigText(messageBody))
                         .setContentText(messageBody)
-                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                        .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
+                        .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE))
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.devops))
+                        .setAutoCancel(true)
 
         val notificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager;
         notificationManager.notify(2, notificationBuilder.build());

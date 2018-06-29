@@ -10,10 +10,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.AnsibleAdapter.MavenAdapter
+import com.ajayrockstarindevops.adapter.MavenAdapter.MavenAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.AnsibleModel.MavenModel
+import com.ajayrockstarindevops.model.MavenModel.MavenModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

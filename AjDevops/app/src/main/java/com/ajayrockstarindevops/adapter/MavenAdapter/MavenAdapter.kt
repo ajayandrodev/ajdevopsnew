@@ -1,4 +1,4 @@
-package com.ajayrockstarindevops.adapter.AnsibleAdapter
+package com.ajayrockstarindevops.adapter.MavenAdapter
 
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -16,7 +16,7 @@ import com.ajayrockstarindevops.historyTools.AnsibleHistoryFragment
 import com.ajayrockstarindevops.historyTools.MavenHistoryFragment
 import com.ajayrockstarindevops.interviewQuestionsTools.AnsibleInterviewQuestionsFragment
 import com.ajayrockstarindevops.interviewQuestionsTools.MavenInterviewQuestionsFragment
-import com.ajayrockstarindevops.model.AnsibleModel.MavenModel
+import com.ajayrockstarindevops.model.MavenModel.MavenModel
 
 
 /**
