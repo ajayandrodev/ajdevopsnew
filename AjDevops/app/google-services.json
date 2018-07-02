@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "885498913691-jr2f75hiil297cvtftk5cp2fs5s822ck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ajayrockstarindevops.ajdevops",
+            "certificate_hash": "c5baa91b43f7716dfda6737664b7c804ee64ea7c"
+          }
+        },
+        {
           "client_id": "885498913691-ji39kjot48v9er73end7b0p98uu1h6s3.apps.googleusercontent.com",
           "client_type": 3
         }
