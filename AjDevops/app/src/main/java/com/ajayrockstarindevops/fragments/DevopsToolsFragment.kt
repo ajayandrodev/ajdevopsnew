@@ -14,7 +14,8 @@ import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.DevopsToolModel
 import android.R.attr.spacing
 import com.ajayrockstarindevops.util.GridSpacingItemDecoration
-
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +32,7 @@ class DevopsToolsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    lateinit var mAdView: AdView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -44,6 +45,12 @@ class DevopsToolsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_devops_tools, container, false)
         //getting recyclerview from xml
+
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager
         recyclerView.setHasFixedSize(true)
@@ -62,17 +69,17 @@ class DevopsToolsFragment : Fragment() {
         users.add(DevopsToolModel("ANSIBLE"))
         users.add(DevopsToolModel("MAVEN"))
         users.add(DevopsToolModel("LINUX"))
-      /*  users.add(DevopsToolModel("NGINX "))
-        users.add(DevopsToolModel("CHEF"))
-        users.add(DevopsToolModel("AWS"))
-        users.add(DevopsToolModel("PUPPET"))
-        users.add(DevopsToolModel("PYTHON"))
+        /*  users.add(DevopsToolModel("NGINX "))
+          users.add(DevopsToolModel("CHEF"))
+          users.add(DevopsToolModel("AWS"))
+          users.add(DevopsToolModel("PUPPET"))
+          users.add(DevopsToolModel("PYTHON"))
 
-        users.add(DevopsToolModel("KUBERNET"))
-        users.add(DevopsToolModel("SHELLSCRIPT"))
-        users.add(DevopsToolModel("SALTSTACK"))
-        users.add(DevopsToolModel("NAGIOS"))
-        users.add(DevopsToolModel("ELK"))*/
+          users.add(DevopsToolModel("KUBERNET"))
+          users.add(DevopsToolModel("SHELLSCRIPT"))
+          users.add(DevopsToolModel("SALTSTACK"))
+          users.add(DevopsToolModel("NAGIOS"))
+          users.add(DevopsToolModel("ELK"))*/
         //creating our adapter
         val adapter = DevopsToolAdapter(users)
         //now adding the adapter to recyclerview
