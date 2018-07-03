@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.ajayrockstarindevops.ajdevops">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -15,10 +16,11 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/devops"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:supportsRtl">
         <activity android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,12 +46,15 @@
          Set color used with incoming notification messages. This is used when no color is set for the incoming
          notification message.
         -->
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
-
-
-      <!--  <activity
+      <!--  <meta-data
+            android:name="io.fabric.ApiKey"
+            tools:node="remove" />
+-->
+       <!-- <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme.NoActionBar" />-->

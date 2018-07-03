@@ -7,15 +7,13 @@ import android.support.v7.widget.*
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.ajayrockstarindevops.adapter.DevopsToolAdapter
-
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.DevopsToolModel
-import android.R.attr.spacing
 import com.ajayrockstarindevops.util.GridSpacingItemDecoration
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,8 +44,11 @@ class DevopsToolsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_devops_tools, container, false)
         //getting recyclerview from xml
 
+        // Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713
+        MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
         mAdView = view.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
+        val adRequest = AdRequest.Builder().addTestDevice("qqqq")
+                .build()
         mAdView.loadAd(adRequest)
 
 

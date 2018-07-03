@@ -65,7 +65,7 @@ class FirebaseMessageService : FirebaseMessagingService() {
                         .setContentTitle(getString(R.string.app_name))
                         .setStyle(NotificationCompat.BigTextStyle().bigText(messageBody))
                         .setContentText(messageBody)
-                        .setVibrate(longArrayOf(1000, 1000, 1000, 1000, 1000))
+                        .setVibrate(longArrayOf(1000, 1000))
                         .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_RINGTONE))
                         .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.devops))
                         .setAutoCancel(true)
