@@ -24,11 +24,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-
                 android:padding="@dimen/_8sdp"
                 android:text="docker command"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="	#8300c4"
+                android:textColor="#8300c4"
                 android:textSize="16sp"
                 android:textStyle="bold|normal" />
 

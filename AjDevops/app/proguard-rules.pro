@@ -22,3 +22,10 @@
 -dontwarn okio.**
 -keep class com.google.firebase.example.fireeats.model.** { *; }
 -keep class android.support.v7.widget.RecyclerView { *; }
+-keep public class com.google.firebase.analytics.FirebaseAnalytics {
+    public *;
+}
+
+-keep public class com.google.android.gms.measurement.AppMeasurement {
+    public *;
+}
