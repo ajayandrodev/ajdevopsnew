@@ -19,7 +19,7 @@
       android:background="#808080"
       android:gravity="center"
       android:padding="15dp"
-      android:text="ansible History"
+      android:text="ansible"
       android:textAllCaps="true"
       android:textColor="@color/colorAccent"
       android:textSize="18sp"

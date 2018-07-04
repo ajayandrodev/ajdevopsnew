@@ -1,18 +1,19 @@
-package com.ajayrockstarindevops.fragments
+package com.ajayrockstarindevops.commandsTools
 
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DefaultItemAnimator
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.AwsAdapter.AwsAdapter
-
+import com.ajayrockstarindevops.adapter.AwsAdapter.AwsCommandsAdapter
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.AwsModel.AwsModel
+import com.ajayrockstarindevops.model.AwsModel.AwsCommandsModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,11 +22,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [AwsFragment.newInstance] factory method to
+ * Use the [AwsCommandsFragment.newInstance] factory method to
  * create an instance of this fragment.
  *
  */
-class AwsFragment : Fragment() {
+class AwsCommandsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -42,24 +43,24 @@ class AwsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_aws, container, false)
+        val view = inflater.inflate(R.layout.fragment_aws_commands, container, false)
         //getting recyclerview from xml
-        val recyclerView = view.findViewById(R.id.recyclerView_aws) as RecyclerView
+        val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager
-        recyclerView.setHasFixedSize(false)
+        recyclerView.setHasFixedSize(true)
+        val itemDecor = DividerItemDecoration(context, LinearLayout.VERTICAL)
+        recyclerView.addItemDecoration(itemDecor)
+        recyclerView.itemAnimator = DefaultItemAnimator()
         recyclerView.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         //crating an arraylist to store users using the data class user
-        val users = ArrayList<AwsModel>()
-        //adding some dummy data to the list
-        users.add(AwsModel("AWS HISTORY"))
-        users.add(AwsModel("AWS COMMANDS"))
-        users.add(AwsModel("AWS INTERVIEW QUESTIONS"))
-        users.add(AwsModel("AWS ADDITIONAL INFORMATION"))
+        val users = ArrayList<AwsCommandsModel>()
+        users.add(AwsCommandsModel("","",""))
+
         //creating our adapter
-        val adapter = AwsAdapter(users)
+        val adapter = AwsCommandsAdapter(users)
         //now adding the adapter to recyclerview
         recyclerView.adapter = adapter
-        return view;
+        return view
     }
 
 
@@ -70,12 +71,12 @@ class AwsFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment AwsFragment.
+         * @return A new instance of fragment AwsCommandsFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-                AwsFragment().apply {
+                AwsCommandsFragment().apply {
                     arguments = Bundle().apply {
                         putString(ARG_PARAM1, param1)
                         putString(ARG_PARAM2, param2)

@@ -18,7 +18,7 @@
             android:background="#808080"
             android:gravity="center"
             android:padding="15dp"
-            android:text="maven History"
+            android:text="maven"
             android:textAllCaps="true"
             android:textColor="@color/colorAccent"
             android:textSize="18sp"

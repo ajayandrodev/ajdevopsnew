@@ -58,9 +58,10 @@ class DevopsToolsFragment : Fragment() {
         users.add(DevopsToolModel("ANSIBLE"))
         users.add(DevopsToolModel("MAVEN"))
         users.add(DevopsToolModel("LINUX"))
+        users.add(DevopsToolModel("AWS"))
         /*  users.add(DevopsToolModel("NGINX "))
           users.add(DevopsToolModel("CHEF"))
-          users.add(DevopsToolModel("AWS"))
+
           users.add(DevopsToolModel("PUPPET"))
           users.add(DevopsToolModel("PYTHON"))
 

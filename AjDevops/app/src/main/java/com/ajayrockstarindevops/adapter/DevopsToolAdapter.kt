@@ -73,6 +73,9 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
                     5 -> {
                         myFragment = LinuxFragment()
                     }
+                    6 -> {
+                        myFragment = AwsFragment()
+                    }
                    /* 4 -> {
                          myFragment = NginxFragment()
 
