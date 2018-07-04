@@ -15,6 +15,9 @@ import android.widget.LinearLayout
 import com.ajayrockstarindevops.model.GitModel.GitModel
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.DefaultItemAnimator
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,6 +35,8 @@ class GitHubFragment : Fragment() {
   // TODO: Rename and change types of parameters
   private var param1: String? = null
   private var param2: String? = null
+
+  lateinit var mAdView : AdView
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     arguments?.let {
@@ -44,6 +49,11 @@ class GitHubFragment : Fragment() {
                             savedInstanceState: Bundle?): View? {
     // Inflate the layout for this fragment
     val view = inflater.inflate(R.layout.fragment_git_hub, container, false)
+    //initalize ads
+    MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
+    mAdView = view.findViewById(R.id.adView)
+    val adRequest = AdRequest.Builder().build()
+    mAdView.loadAd(adRequest)
     //getting recyclerview from xml
     val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
     //adding a layoutmanager

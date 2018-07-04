@@ -44,7 +44,7 @@ class AwsCommandsFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_aws_commands, container, false)
-        //getting recyclerview from xml
+      /*  //getting recyclerview from xml
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager
         recyclerView.setHasFixedSize(true)
@@ -59,7 +59,7 @@ class AwsCommandsFragment : Fragment() {
         //creating our adapter
         val adapter = AwsCommandsAdapter(users)
         //now adding the adapter to recyclerview
-        recyclerView.adapter = adapter
+        recyclerView.adapter = adapter*/
         return view
     }
 

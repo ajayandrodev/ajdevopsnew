@@ -15,6 +15,9 @@ import com.ajayrockstarindevops.adapter.MavenAdapter.MavenAdapter
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.LinuxModel.LinuxModel
 import com.ajayrockstarindevops.model.MavenModel.MavenModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +34,7 @@ class LinuxFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    lateinit var mAdView : AdView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -45,6 +48,11 @@ class LinuxFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_linux, container, false)
+        //initalize ads
+        MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
         //getting recyclerview from xml
         val recyclerView = view.findViewById(R.id.recyclerView_maven) as RecyclerView
         //adding a layoutmanager

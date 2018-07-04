@@ -12,6 +12,9 @@ import android.widget.LinearLayout
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.AnsibleModel.AnsibleModel
 import com.ajayrockstarindevops.adapter.AnsibleAdapter.AnsibleAdapter
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -29,7 +32,7 @@ class AnsibleFragment : Fragment() {
   // TODO: Rename and change types of parameters
   private var param1: String? = null
   private var param2: String? = null
-
+  lateinit var mAdView : AdView
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     arguments?.let {
@@ -43,6 +46,11 @@ class AnsibleFragment : Fragment() {
     // Inflate the layout for this fragment
     // Inflate the layout for this fragment
     val view = inflater.inflate(R.layout.fragment_ansible, container, false)
+    //initalize ads
+    MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
+    mAdView = view.findViewById(R.id.adView)
+    val adRequest = AdRequest.Builder().build()
+    mAdView.loadAd(adRequest)
     //getting recyclerview from xml
     val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
     //adding a layoutmanager

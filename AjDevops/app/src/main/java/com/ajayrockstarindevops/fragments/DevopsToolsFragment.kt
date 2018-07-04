@@ -12,6 +12,11 @@ import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.DevopsToolModel
 import com.ajayrockstarindevops.util.GridSpacingItemDecoration
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -27,6 +32,9 @@ class DevopsToolsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    lateinit var mAdView : AdView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,6 +47,11 @@ class DevopsToolsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_devops_tools, container, false)
         //getting recyclerview from xml
+        //initalize ads
+        MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
 
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager

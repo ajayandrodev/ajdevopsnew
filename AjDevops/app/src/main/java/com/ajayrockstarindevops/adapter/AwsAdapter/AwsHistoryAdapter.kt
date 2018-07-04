@@ -16,7 +16,7 @@ class AwsHistoryAdapter(val userList: ArrayList<AwsHistoryModel>) : RecyclerView
 
     //this method is returning the view for each item in the list
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.ansible_command_list_layout, parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.aws_command_list_layout, parent, false)
         return ViewHolder(v)
     }
 

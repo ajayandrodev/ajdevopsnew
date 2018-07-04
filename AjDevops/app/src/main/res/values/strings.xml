@@ -7,6 +7,11 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <!--admod unit ids-->
+    <string name="banner_unit_id">ca-app-pub-9279514970367399/1429511256</string>
+    <string name="interstitial_unit_id">ca-app-pub-9279514970367399/5675878021</string>
+    <string name="rewarded_unit_id">ca-app-pub-9279514970367399/3979652974</string>
+    <string name="addmob_app_id">ca-app-pub-9279514970367399~6950217666</string>
     <!--feedback-->
     <string name="mail_feedback_email">feedback@example.com</string>
     <string name="mail_feedback_subject">Feedback on your app</string>
