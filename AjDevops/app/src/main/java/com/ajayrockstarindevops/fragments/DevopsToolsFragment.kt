@@ -47,11 +47,6 @@ class DevopsToolsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_devops_tools, container, false)
         //getting recyclerview from xml
-        //initalize ads
-        MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
-        mAdView = view.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
 
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager
