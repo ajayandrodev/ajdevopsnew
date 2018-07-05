@@ -10,7 +10,7 @@ android {
         release {
             keyAlias 'key0'
             keyPassword 'devops@123@$'
-            storeFile file('D:/ajdevopskey/keyDevops.jks')
+            storeFile file('E:/ajdevopsnew/AjDevops/KeyStore/keyDevops.jks')
             storePassword 'devops@123@$'
         }
     }
@@ -19,8 +19,8 @@ android {
         applicationId "com.ajayrockstarindevops.ajdevops"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 6
+        versionName "1.0.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release
         multiDexEnabled true
@@ -48,7 +48,6 @@ android {
 }
 
 dependencies {
-
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:27.1.1'
