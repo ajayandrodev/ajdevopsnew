@@ -18,7 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:supportsRtl">
-        <activity android:name=".GoogleSigninActivity">
+        <activity android:name=".NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,10 +54,10 @@
             android:name="io.fabric.ApiKey"
             tools:node="remove" />
 
-        <activity
+       <!-- <activity
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" />-->
 
     </application>
 
