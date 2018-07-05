@@ -27,6 +27,7 @@
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textColor="#8300c4"
                 android:textSize="16sp"
+                android:textAllCaps="true"
                 android:textStyle="bold|normal" />
 
             <TextView
@@ -36,7 +37,7 @@
                 android:padding="@dimen/_8sdp"
                 android:text="ansible discription"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:textColor="@android:color/black"
+                android:textColor="@android:color/background_dark"
                 android:textSize="16sp"
                 android:textStyle="normal" />
 
