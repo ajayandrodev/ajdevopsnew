@@ -310,13 +310,13 @@ class FirebasePhoneAuthentication : AppCompatActivity(), View.OnClickListener {
         } else {
             // Signed in
             mPhoneNumberViews.visibility = View.GONE
-
+/*
             mSignedInViews.setVisibility(View.VISIBLE);
             enableViews(mPhoneNumberField, mVerificationField);
             mPhoneNumberField.setText(null);
             mVerificationField.setText(null);
             mStatusText.setText(R.string.signed_in);
-            mDetailText.setText(getString(R.string.firebase_status_fmt, user.getUid()));
+            mDetailText.setText(getString(R.string.firebase_status_fmt, user.getUid()));*/
 
             val intent = Intent(this, NavigationDrawerActivity::class.java)
             startActivity(intent)
