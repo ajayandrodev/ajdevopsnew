@@ -353,10 +353,13 @@ class FirebasePhoneAuthentication : AppCompatActivity(), View.OnClickListener {
                 if (!validatePhoneNumber()) {
                     return
                 }
-                ///////hide keyboard start
+                val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(mVerificationField.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS)
+
+                /*  ///////hide keyboard start
                 val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS)
-                /////////hide keyboard end
+                /////////hide keyboard end*/
                 //mStatusText.setText("Authenticating....!");
                 progressBar.visibility = View.VISIBLE
                 startPhoneNumberVerification(mPhoneNumberField.getText().toString())
