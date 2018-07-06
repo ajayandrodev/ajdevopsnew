@@ -1,47 +1,40 @@
 package com.ajayrockstarindevops.ajdevops
 
-import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_navigation_drawer.*
-import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+import android.view.View
 import android.widget.TextView
-import android.view.View;
 import android.widget.Toast
-import android.support.v4.app.Fragment
-import android.support.v7.app.AlertDialog
-import com.ajayrockstarindevops.fragments.*
-import com.ajayrockstarindevops.historyTools.AnsibleHistoryFragment
-import com.ajayrockstarindevops.historyTools.DockerHistoryFragment
-import com.ajayrockstarindevops.historyTools.GitHistoryFragment
-import com.ajayrockstarindevops.historyTools.JenkinsHistoryFragment
-import android.content.Intent
-import com.ajayrockstarindevops.commandsTools.AnsibleCommandsFragment
-import com.ajayrockstarindevops.commandsTools.DockerCommnadsFragment
-import com.ajayrockstarindevops.commandsTools.GitHubCommandsFragment
-import com.ajayrockstarindevops.commandsTools.JenkinsCommandsFragment
 import com.ajayrockstarindevops.firebaseData.MainFragment
 import com.ajayrockstarindevops.firebaseData.NoteFragment
 import com.ajayrockstarindevops.firebaseData.StorageFragment
-import com.ajayrockstarindevops.model.Note
+import com.ajayrockstarindevops.fragments.DevopsToolsFragment
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import android.net.Uri;
+import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_navigation_drawer.*
+import kotlinx.android.synthetic.main.app_bar_navigation_drawer.*
+
 
 class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+
+    private var mAuth: FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_navigation_drawer)
         setSupportActionBar(toolbar)
         getSupportActionBar()!!.setTitle("DEVOPS TOOLS")
-        val personName = intent.getStringExtra("name")
-        val personEmail = intent.getStringExtra("email")
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.setCheckedItem(R.id.nav_dev_tool);
@@ -49,13 +42,16 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         ft.replace(R.id.mainFrame, DevopsToolsFragment())
         ft.commit()
         val header = navigationView.getHeaderView(0)
-        val name = header.findViewById(R.id.name) as TextView
-        val email = header.findViewById(R.id.email) as TextView
-        name.setText(personName)
-        email.setText(personEmail)
+        mAuth = FirebaseAuth.getInstance()
+        val imageView = header.findViewById<CircleImageView>(R.id.circleView) as CircleImageView
+        val textName = header.findViewById(R.id.name) as TextView
+        val textEmail = header.findViewById(R.id.email) as TextView
+        val user = mAuth!!.getCurrentUser()
 
-        val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        Glide.with(this).load(user?.getPhotoUrl()).into(imageView)
+        textName.setText(user?.getDisplayName())
+        textEmail.setText(user?.getEmail())
+        val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)

@@ -11,4 +11,6 @@
   <color name="very_dark_gray">#636363</color>
 
   <color name="background">#e9e3dd</color>
+  <color name="grey_100">#F5F5F5</color>
+  <color name="grey_300">#E0E0E0</color>
 </resources>

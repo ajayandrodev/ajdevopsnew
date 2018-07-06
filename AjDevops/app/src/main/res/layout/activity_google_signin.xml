@@ -4,15 +4,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#C0C0C0"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/_5sdp">
 
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/btn_sign_in"
+    <LinearLayout
+        android:id="@+id/phone_auth_items"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:padding="8dp" />
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_phone_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_marginRight="@dimen/_5sdp"
+            android:background="@android:color/holo_orange_dark"
+            android:padding="@dimen/_5sdp"
+            android:text="Phone number"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:id="@+id/phone_auth_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="OR"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/btn_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_5sdp" />
+    </LinearLayout>
 
 
 </RelativeLayout>
