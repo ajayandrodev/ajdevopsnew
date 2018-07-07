@@ -84,7 +84,9 @@ class GoogleSigninActivity : AppCompatActivity(), View.OnClickListener, GoogleAp
                         updateUI(user)
                     } else {
                         Toast.makeText(applicationContext, "Something Went Wrong", Toast.LENGTH_LONG).show();
-                        //updateUI(null)
+                        updateUI(null)
+                        Log.e(TAG, "onConnectionFailed():qqqqq" + task.exception);
+
                     }
                 }
     }

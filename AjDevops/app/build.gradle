@@ -10,7 +10,7 @@ android {
         release {
             keyAlias 'key0'
             keyPassword 'devops@123@$'
-            storeFile file('E:/ajdevopsnew/AjDevops/KeyStore/keyDevops.jks')
+            storeFile file('E:/devopsapp/ajdevopsnew/AjDevops/KeyStore/keyDevops.jks')
             storePassword 'devops@123@$'
         }
     }
@@ -19,8 +19,8 @@ android {
         applicationId "com.ajayrockstarindevops.ajdevops"
         minSdkVersion 15
         targetSdkVersion 27
-        versionCode 9
-        versionName "1.1.1"
+        versionCode 10
+        versionName "1.1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         signingConfig signingConfigs.release
     }
