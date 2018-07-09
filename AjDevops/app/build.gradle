@@ -10,7 +10,7 @@ android {
         release {
             keyAlias 'key0'
             keyPassword 'devops@123@$'
-            storeFile file('E:/devopsapp/ajdevopsnew/AjDevops/KeyStore/keyDevops.jks')
+            storeFile file('E:/ajdevopsnew/AjDevops/KeyStore/keyDevops.jks')
             storePassword 'devops@123@$'
         }
     }
@@ -75,7 +75,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:11.6.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.2',{
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation 'com.google.android.gms:play-services-auth:11.6.0'
