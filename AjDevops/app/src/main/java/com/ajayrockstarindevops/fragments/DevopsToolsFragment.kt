@@ -11,12 +11,16 @@ import com.ajayrockstarindevops.adapter.DevopsToolAdapter
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.DevopsToolModel
 import com.ajayrockstarindevops.util.GridSpacingItemDecoration
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
+import android.util.Log;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -33,7 +37,8 @@ class DevopsToolsFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
-    lateinit var mAdView : AdView
+    lateinit var mAdView: AdView
+    private lateinit var mInterstitialAd: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +52,27 @@ class DevopsToolsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_devops_tools, container, false)
         //getting recyclerview from xml
+        prepareAd()
+        val scheduler = Executors.newSingleThreadScheduledExecutor()
+        scheduler.scheduleAtFixedRate(object:Runnable {
+            public override fun run() {
+                Log.i("hello", "world")
+               activity?.runOnUiThread(object:Runnable {
+                    public override fun run() {
+                        if (mInterstitialAd.isLoaded())
+                        {
+                            mInterstitialAd.show()
+                        }
+                        else
+                        {
+                            Log.d("TAG", " Interstitial not loaded")
+                        }
+                        prepareAd()
+                    }
+                })
+            }
+        }, 15, 15, TimeUnit.MINUTES)
+
 
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager
@@ -67,6 +93,7 @@ class DevopsToolsFragment : Fragment() {
         users.add(DevopsToolModel("MAVEN"))
         users.add(DevopsToolModel("LINUX"))
         users.add(DevopsToolModel("AWS"))
+        users.add(DevopsToolModel("NAGIOS"))
         /*  users.add(DevopsToolModel("NGINX "))
           users.add(DevopsToolModel("CHEF"))
 
@@ -76,7 +103,7 @@ class DevopsToolsFragment : Fragment() {
           users.add(DevopsToolModel("KUBERNET"))
           users.add(DevopsToolModel("SHELLSCRIPT"))
           users.add(DevopsToolModel("SALTSTACK"))
-          users.add(DevopsToolModel("NAGIOS"))
+
           users.add(DevopsToolModel("ELK"))*/
         //creating our adapter
         val adapter = DevopsToolAdapter(users)
@@ -86,6 +113,12 @@ class DevopsToolsFragment : Fragment() {
         return view
     }
 
+    fun prepareAd() {
+        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
+        mInterstitialAd = InterstitialAd(activity)
+        mInterstitialAd.adUnitId = resources.getString(R.string.interstitial_unit_id)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+    }
 
     companion object {
         /**

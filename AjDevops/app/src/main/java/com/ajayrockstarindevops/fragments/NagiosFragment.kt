@@ -3,11 +3,21 @@ package com.ajayrockstarindevops.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import com.ajayrockstarindevops.adapter.AwsAdapter.AwsAdapter
+import com.ajayrockstarindevops.adapter.NagiosAdapter.NagiosAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
+import com.ajayrockstarindevops.model.AwsModel.AwsModel
+import com.ajayrockstarindevops.model.NagiosModel.NagiosModel
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,6 +34,7 @@ class NagiosFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +46,32 @@ class NagiosFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_nagios, container, false)
+        val view = inflater.inflate(R.layout.fragment_nagios, container, false)
+        //initalize ads
+        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
+        //getting recyclerview from xml
+        val recyclerView = view.findViewById(R.id.recyclerView_aws) as RecyclerView
+        //adding a layoutmanager
+        recyclerView.setHasFixedSize(false)
+        recyclerView.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+        //crating an arraylist to store users using the data class user
+        val users = ArrayList<NagiosModel>()
+        //adding some dummy data to the list
+        users.add(NagiosModel("NAGIOS HISTORY"))
+        users.add(NagiosModel("NAGIOS COMMANDS"))
+        users.add(NagiosModel("NAGIOS INTERVIEW QUESTIONS"))
+        users.add(NagiosModel("NAGIOS ADDITIONAL INFORMATION"))
+        //creating our adapter
+        val adapter = NagiosAdapter(users)
+        //now adding the adapter to recyclerview
+        recyclerView.adapter = adapter
+        return view;
     }
 
 

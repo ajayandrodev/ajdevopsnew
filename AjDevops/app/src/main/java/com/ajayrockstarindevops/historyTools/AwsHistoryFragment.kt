@@ -53,7 +53,7 @@ class AwsHistoryFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_aws_history, container, false)
         //initalize ads
-        MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
+        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)

@@ -1,20 +1,15 @@
 package com.ajayrockstarindevops.adapter
 
+import android.support.v4.app.Fragment
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.DevopsToolModel
-import android.widget.Toast
-import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
-
 import com.ajayrockstarindevops.fragments.*
-import android.support.v7.app.AppCompatActivity
-import com.ajayrockstarindevops.firebaseData.MainFragment
-import kotlinx.android.synthetic.main.devops_list_layout.*
-import android.view.View
+import com.ajayrockstarindevops.model.DevopsToolModel
 
 
 /**
@@ -51,19 +46,19 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
 
                 when (adapterPosition) {
                     0 -> {
-                         myFragment = GitHubFragment()
+                        myFragment = GitHubFragment()
 
                     }
                     1 -> {
-                         myFragment = JenkinsFragment()
+                        myFragment = JenkinsFragment()
 
                     }
                     2 -> {
-                         myFragment = DockerFragment()
+                        myFragment = DockerFragment()
 
                     }
                     3 -> {
-                         myFragment = AnsibleFragment()
+                        myFragment = AnsibleFragment()
 
                     }
                     4 -> {
@@ -76,46 +71,47 @@ class DevopsToolAdapter(val userList: ArrayList<DevopsToolModel>) : RecyclerView
                     6 -> {
                         myFragment = AwsFragment()
                     }
-                   /* 4 -> {
-                         myFragment = NginxFragment()
-
-                    }
-                    5 -> {
-                         myFragment = ChefFragment()
-
-                    }
-                    6 -> {
-                         myFragment = AwsFragment()
-
-                    }
                     7 -> {
-                         myFragment = PuppetFragment()
+                        myFragment = NagiosFragment()
 
                     }
-                    8 -> {
-                         myFragment = PythonFragment()
+                /* 4 -> {
+                      myFragment = NginxFragment()
 
-                    }
-                    10 -> {
-                         myFragment = KubernetFragment()
+                 }
+                 5 -> {
+                      myFragment = ChefFragment()
 
-                    }
-                    11 -> {
-                         myFragment = ShellScriptFragment()
+                 }
+                 6 -> {
+                      myFragment = AwsFragment()
 
-                    }
-                    12 -> {
-                         myFragment = SaltFragment()
+                 }
+                 7 -> {
+                      myFragment = PuppetFragment()
 
-                    }
-                    13 -> {
-                         myFragment = NagiosFragment()
+                 }
+                 8 -> {
+                      myFragment = PythonFragment()
 
-                    }
-                    14 -> {
-                         myFragment = ElkFragment()
+                 }
+                 10 -> {
+                      myFragment = KubernetFragment()
 
-                    }
+                 }
+                 11 -> {
+                      myFragment = ShellScriptFragment()
+
+                 }
+                 12 -> {
+                      myFragment = SaltFragment()
+
+                 }
+
+                 14 -> {
+                      myFragment = ElkFragment()
+
+                 }
 */
                 }
                 activity.supportFragmentManager.beginTransaction().replace(R.id.mainFrame, myFragment).addToBackStack(null).commit()

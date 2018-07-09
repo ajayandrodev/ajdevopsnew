@@ -48,7 +48,7 @@ class JenkinsHistoryFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_jenkins_history, container, false)
         //initalize ads
         //initalize ads
-        MobileAds.initialize(activity, "ca-app-pub-9279514970367399~6950217666")
+        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
         mAdView = view.findViewById(R.id.adView)
         val adRequest = AdRequest.Builder().build()
         mAdView.loadAd(adRequest)

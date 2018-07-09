@@ -13,6 +13,13 @@
     <string name="rewarded_unit_id">ca-app-pub-9279514970367399/3979652974</string>
     <string name="addmob_app_id">ca-app-pub-9279514970367399~6950217666</string>
 
+   <!-- Ad format	Sample ad unit ID
+    Banner	================ca-app-pub-3940256099942544/6300978111
+    Interstitial================	ca-app-pub-3940256099942544/1033173712
+    Interstitial Video	==================ca-app-pub-3940256099942544/8691691433
+    Rewarded Video	===================ca-app-pub-3940256099942544/5224354917
+    Native Advanced	===================ca-app-pub-3940256099942544/2247696110
+    Native Advanced Video	===============ca-app-pub-3940256099942544/1044960115-->
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
