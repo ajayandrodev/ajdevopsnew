@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:name="android.support.multidex.MultiDexApplication"
@@ -51,7 +52,16 @@
             android:name=".NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".FirebasePhoneAuthentication"></activity>
+        <activity android:name=".FirebasePhoneAuthentication" />
+        <activity android:name="com.android.rivchat.ui.ChatActivity" />
+        <activity
+            android:name="com.android.rivchat.ui.AddGroupActivity"
+            android:theme="@style/MyThemeNoActionbar" />
+
+        <service
+            android:name="com.android.rivchat.service.FriendChatService"
+            android:exported="false"
+            android:persistent="true" />
     </application>
 
 </manifest>
