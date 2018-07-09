@@ -52,6 +52,7 @@ class DevopsToolsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_devops_tools, container, false)
         //getting recyclerview from xml
+
         prepareAd()
         val scheduler = Executors.newSingleThreadScheduledExecutor()
         scheduler.scheduleAtFixedRate(object:Runnable {
@@ -71,7 +72,7 @@ class DevopsToolsFragment : Fragment() {
                     }
                 })
             }
-        }, 15, 15, TimeUnit.MINUTES)
+        }, 15, 15, TimeUnit.SECONDS)
 
 
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
@@ -115,6 +116,10 @@ class DevopsToolsFragment : Fragment() {
 
     fun prepareAd() {
         MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
         mInterstitialAd = InterstitialAd(activity)
         mInterstitialAd.adUnitId = resources.getString(R.string.interstitial_unit_id)
         mInterstitialAd.loadAd(AdRequest.Builder().build())
