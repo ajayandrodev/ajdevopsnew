@@ -82,8 +82,7 @@ class MavenHistoryFragment : Fragment() {
                 "3===>Project building using lifecycles, phases, plugins, goals and build profiles.\n" +
                 "4===>Dependency management through repositories\n" +
                 "5===>Deployment with the release plugin.", ""))
-        users.add(MavenHistoryModel("The Project Object Model", "", ""))
-        users.add(MavenHistoryModel("about maven", "The Project Object Model or POM is the fundamental unit of work in Maven. \\nIt is an XML file, usually defined in the project root directory, that contains information about the project and the configuration used by Maven to build the project.\n" +
+        users.add(MavenHistoryModel("The Project Object Model", "The Project Object Model or POM is the fundamental unit of work in Maven. \\nIt is an XML file, usually defined in the project root directory, that contains information about the project and the configuration used by Maven to build the project.\n" +
                 "\n" +
                 "The configuration that can be included in the POM file is as follows: \n" +
                 "\n" +
