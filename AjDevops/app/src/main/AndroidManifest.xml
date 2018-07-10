@@ -17,7 +17,9 @@
         android:roundIcon="@drawable/devops"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GoogleSigninActivity">
+        <activity android:name=".NavigationDrawerActivity"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,10 +50,10 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
 
-          <activity
+        <!--  <activity
                 android:name=".NavigationDrawerActivity"
                 android:label="@string/title_activity_navigation_drawer"
-                android:theme="@style/AppTheme.NoActionBar" />
+                android:theme="@style/AppTheme.NoActionBar" />-->
         <activity android:name=".FirebasePhoneAuthentication" />
 
     </application>
