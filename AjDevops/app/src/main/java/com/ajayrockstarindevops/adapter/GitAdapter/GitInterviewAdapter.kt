@@ -36,9 +36,9 @@ class GitInterviewAdapter(val userList: ArrayList<GitInterviewModel>) : Recycler
 
         fun bindItems(user: GitInterviewModel) {
             val textViewCommand = itemView.findViewById(R.id.git_ques) as TextView
-            textViewCommand.text = user.command
+            textViewCommand.text = user.question
             val textViewDis = itemView.findViewById(R.id.git_ans) as TextView
-            textViewDis.text = user.discription
+            textViewDis.text = user.answer
         }
     }
 }

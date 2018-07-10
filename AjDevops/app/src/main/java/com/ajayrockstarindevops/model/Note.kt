@@ -1,6 +1,6 @@
 package com.ajayrockstarindevops.model
 
-import java.util.HashMap
+import java.util.*
 
 class Note {
 
@@ -12,14 +12,18 @@ class Note {
 
     constructor() {}
 
-/*
-    constructor(id: String, title: String, content: String, name: String) {
-        this.id = id
-        this.title = title
+    /*
+        constructor(id: String, title: String, content: String, name: String) {
+            this.id = id
+            this.title = title
+            this.content = content
+            this.name = name
+        }
+    */
+    constructor(content: String) {
         this.content = content
-        this.name = name
     }
-*/
+
 
     constructor(date: String, title: String, content: String, name: String) {
         this.title = title
@@ -27,6 +31,14 @@ class Note {
         this.name = name
         this.date = date
     }
+
+    fun toMapFag(): Map<String, Any> {
+        val result = HashMap<String, Any>()
+        result.put("content", content!!)
+
+        return result
+    }
+
 
     fun toMap(): Map<String, Any> {
 

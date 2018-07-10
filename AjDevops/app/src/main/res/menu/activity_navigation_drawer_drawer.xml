@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_added_notes"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Added Notes" />
+            android:title="Added QA" />
         <!--    <item
                 android:id="@+id/nav_git"
                 android:icon="@drawable/ic_menu_gallery"
@@ -91,6 +91,10 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="Feedback" />
+            <item
+                android:id="@+id/nav_faq"
+                android:icon="@drawable/ques_icon"
+                android:title="FAQ" />
         </menu>
     </item>
 

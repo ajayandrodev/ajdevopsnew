@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
+        android:layout_margin="@dimen/_2sdp"
         android:background="#C0C0C0">
 
         <LinearLayout
@@ -24,36 +20,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:padding="5dp"
+                android:padding="@dimen/_1sdp"
                 android:text="Date:"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:padding="5dp"
+                android:padding="@dimen/_1sdp"
                 android:text="Name"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:padding="5dp"
+                android:padding="@dimen/_1sdp"
                 android:text="Title"
                 android:textColor="@color/colorAccent"
-                android:textSize="@dimen/_16sdp" />
+                android:textSize="@dimen/_10sdp" />
 
             <TextView
                 android:id="@+id/tvContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="@dimen/_2sdp"
                 android:text="Text for Content"
                 android:textColor="@android:color/black"
                 android:textSize="@dimen/_12sdp" />

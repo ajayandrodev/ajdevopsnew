@@ -9,15 +9,14 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import com.ajayrockstarindevops.firebaseData.MainFragment
-import com.ajayrockstarindevops.firebaseData.NoteFragment
 import com.ajayrockstarindevops.firebaseData.StorageFragment
 import com.ajayrockstarindevops.fragments.DevopsToolsFragment
+import com.ajayrockstarindevops.fragments.FaqFragment
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import de.hdodenhof.circleimageview.CircleImageView
@@ -83,35 +82,6 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
         alertDialog.show()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> {
-                // Toast.makeText(this@NavigationDrawerActivity, "Its working!", Toast.LENGTH_SHORT).show()
-                var fragment: Fragment? = null
-                getSupportActionBar()!!.setTitle("ADD NOTE")
-                fragment = NoteFragment.newInstance()
-                //NOTE: Fragment changing code
-                if (fragment != null) {
-                    val ft = supportFragmentManager.beginTransaction()
-                    ft.replace(R.id.mainFrame, fragment).addToBackStack(null)
-                    ft.commit()
-                }
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-
-    }
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
@@ -124,7 +94,7 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
                 fragment = DevopsToolsFragment()
             }
             R.id.nav_added_notes -> {
-                getSupportActionBar()!!.setTitle("ADD NOTES")
+                getSupportActionBar()!!.setTitle("ADD Q&A")
                 fragment = MainFragment()
 
             }
@@ -137,10 +107,16 @@ class NavigationDrawerActivity : AppCompatActivity(), NavigationView.OnNavigatio
             R.id.nav_share -> {
                 val sharingIntent = Intent(android.content.Intent.ACTION_SEND)
                 sharingIntent.type = "text/plain"
-                val shareBodyText = "Install this cool application: " + " " + "https://play.google.com/store/apps/details?id=com.ajayrockstarindevops.ajdevops"
+                val shareBodyText = "Install this devops cool application: " + " " + "https://play.google.com/store/apps/details?id=com.ajayrockstarindevops.ajdevops"
                 sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Download App")
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBodyText)
                 startActivity(Intent.createChooser(sharingIntent, "Shearing Option"))
+            }
+            R.id.nav_faq -> {
+                getSupportActionBar()!!.setTitle("FAQ's")
+                fragment = FaqFragment()
+
+
             }
             R.id.nav_send -> {
                 val i = Intent(Intent.ACTION_SENDTO)
