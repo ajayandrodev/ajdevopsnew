@@ -71,7 +71,7 @@ class DevopsToolsFragment : Fragment() {
                         {
                             Log.d("TAG", " Interstitial not loaded")
                         }
-                        prepareAd()
+                       // prepareAd()
                     }
                 })
             }

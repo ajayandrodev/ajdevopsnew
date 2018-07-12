@@ -32,7 +32,7 @@ class NoteRecyclerViewAdapter(private val notesList: MutableList<Note>, private 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val note = notesList[position]
 
-        holder!!.title.text = note.title
+        holder.title.text = note.title
         holder.content.text = note.content
         holder.name.text = note.name
         holder.date.text =note.date

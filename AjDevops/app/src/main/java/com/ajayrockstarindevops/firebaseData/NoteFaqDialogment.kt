@@ -16,7 +16,7 @@ import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.fragments.FaqFragment
 import com.ajayrockstarindevops.model.Note
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.fragment_note.*
+import kotlinx.android.synthetic.main.fragment_note_faq_dialogment.*
 import java.util.*
 
 // TODO: Rename parameter arguments, choose names that match

@@ -14,10 +14,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import com.ajayrockstarindevops.adapter.NoteFaqRecyclerViewAdapter
-import com.ajayrockstarindevops.adapter.NoteRecyclerViewAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.firebaseData.NoteDailogFragment
 import com.ajayrockstarindevops.firebaseData.NoteFaqDialogment
 import com.ajayrockstarindevops.model.Note
 import com.google.android.gms.ads.AdRequest
@@ -25,7 +23,7 @@ import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
-import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.android.synthetic.main.fragment_faq.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -80,10 +78,7 @@ class FaqFragment : Fragment() ,View.OnClickListener{
         return view;
     }
 
-    override fun onResume() {
-        super.onResume()
-        loadNotesList()
-    }
+
 
     override fun onClick(v: View?) {
         val myDialogFragment = NoteFaqDialogment()

@@ -40,9 +40,7 @@ class MainFragment : Fragment(),View.OnClickListener {
     private var mAdapter: NoteRecyclerViewAdapter? = null
 
     private var firestoreDB: FirebaseFirestore? = null
-    private var firestoreListener: ListenerRegistration? = null
-    var pStatus = 0
-    val handler = Handler()
+//    private var firestoreListener: ListenerRegistration? = null
     lateinit var tv: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,7 +70,6 @@ class MainFragment : Fragment(),View.OnClickListener {
 
     override fun onClick(v: View?) {
         val myDialogFragment = NoteDailogFragment()
-
         myDialogFragment.show(fragmentManager, "DialogFragment")
     }
 
