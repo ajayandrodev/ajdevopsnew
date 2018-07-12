@@ -14,6 +14,7 @@ import com.ajayrockstarindevops.model.DockerModel.DockerModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.fragment_docker.*
 
 
 // TODO: Rename parameter arguments, choose names that match

@@ -9,15 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.AwsAdapter.AwsAdapter
 import com.ajayrockstarindevops.adapter.NagiosAdapter.NagiosAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.AwsModel.AwsModel
 import com.ajayrockstarindevops.model.NagiosModel.NagiosModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.fragment_nagios.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

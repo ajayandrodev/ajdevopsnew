@@ -16,6 +16,11 @@ import com.ajayrockstarindevops.adapter.JenkinsAdapter.JenkinsInterAdapter
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.JenkinsModel.JenkinsInterviewModel
 
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.fragment_jenkins_interview_questions.*
+
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
@@ -39,6 +44,7 @@ class JenkinsInterviewQuestionsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +58,12 @@ class JenkinsInterviewQuestionsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_jenkins_interview_questions, container, false)
+
+        //initalize ads
+        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
         //getting recyclerview from xml
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager

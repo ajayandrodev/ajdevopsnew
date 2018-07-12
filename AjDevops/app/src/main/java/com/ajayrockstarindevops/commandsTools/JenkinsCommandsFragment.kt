@@ -11,12 +11,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.ajayrockstarindevops.adapter.DockerAdapter.DockerCommandsAdapter
 import com.ajayrockstarindevops.adapter.JenkinsAdapter.JenkinsCommandsAdaper
 
 import com.ajayrockstarindevops.ajdevops.R
-import com.ajayrockstarindevops.model.DockerModel.DockerCommandsModel
 import com.ajayrockstarindevops.model.JenkinsModel.JenkinsCommandsModel
+
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.MobileAds
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +35,7 @@ class JenkinsCommandsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
+    lateinit var mAdView : AdView
   //  https://www.stratoscale.com/blog/devops/practical-devops-use-case-github-jenkins-docker/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +49,12 @@ class JenkinsCommandsFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_jenkins_commands, container, false)
+        //initalize ads
+        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
+        mAdView = view.findViewById(R.id.adView)
+        val adRequest = AdRequest.Builder().build()
+        mAdView.loadAd(adRequest)
+
         //getting recyclerview from xml
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager

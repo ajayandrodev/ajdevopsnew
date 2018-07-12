@@ -24,6 +24,7 @@ import com.google.firebase.auth.*
 import java.util.concurrent.TimeUnit
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_firebase_phone_authentication.*
 
 
 

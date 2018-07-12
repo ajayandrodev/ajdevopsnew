@@ -18,6 +18,7 @@ import android.support.v7.widget.DefaultItemAnimator
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
+import kotlinx.android.synthetic.main.fragment_git_hub.*
 
 
 // TODO: Rename parameter arguments, choose names that match
