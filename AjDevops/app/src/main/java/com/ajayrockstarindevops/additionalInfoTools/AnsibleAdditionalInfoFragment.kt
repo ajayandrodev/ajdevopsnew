@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.ajayrockstarindevops.ajdevops.R
-import kotlinx.android.synthetic.main.fragment_ansible_additional_info.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

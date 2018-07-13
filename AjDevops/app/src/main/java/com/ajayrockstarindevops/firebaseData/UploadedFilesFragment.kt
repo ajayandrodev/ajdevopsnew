@@ -19,7 +19,6 @@ import com.ajayrockstarindevops.util.ImageViewHolderUpload
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-import kotlinx.android.synthetic.main.fragment_uploaded_files.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

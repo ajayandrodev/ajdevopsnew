@@ -15,10 +15,6 @@ import com.ajayrockstarindevops.adapter.AwsAdapter.AwsInterAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.AwsModel.AwsInterviewModel
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.AdView
-import com.google.android.gms.ads.MobileAds
-import kotlinx.android.synthetic.main.fragment_aws_questions.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,7 +31,6 @@ class AwsInterviewQuestionsFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    lateinit var mAdView : AdView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,14 +45,6 @@ class AwsInterviewQuestionsFragment : Fragment() {
 
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_aws_questions, container, false)
-
-
-        //initalize ads
-        MobileAds.initialize(activity, resources.getString(R.string.addmob_app_id))
-        mAdView = view.findViewById(R.id.adView)
-        val adRequest = AdRequest.Builder().build()
-        mAdView.loadAd(adRequest)
-
         //getting recyclerview from xml
         val recyclerView = view.findViewById(R.id.recyclerView) as RecyclerView
         //adding a layoutmanager

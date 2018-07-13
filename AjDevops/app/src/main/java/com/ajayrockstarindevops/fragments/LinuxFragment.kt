@@ -10,13 +10,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.ajayrockstarindevops.adapter.LinuxAdapter.LinuxAdapter
+import com.ajayrockstarindevops.adapter.MavenAdapter.MavenAdapter
 
 import com.ajayrockstarindevops.ajdevops.R
 import com.ajayrockstarindevops.model.LinuxModel.LinuxModel
+import com.ajayrockstarindevops.model.MavenModel.MavenModel
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdView
 import com.google.android.gms.ads.MobileAds
-import kotlinx.android.synthetic.main.fragment_linux.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
